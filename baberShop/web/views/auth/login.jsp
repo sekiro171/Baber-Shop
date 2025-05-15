@@ -70,7 +70,7 @@
                     </div>
                     <button type="submit" class="btn">Đăng Nhập</button>
                     <div class="register-link">
-                        Chưa có tài khoản? <a href="register.jsp">Đăng ký ngay</a>
+                        Chưa có tài khoản? <a href="${pageContext.request.contextPath}/views/auth/register.jsp">Đăng ký ngay</a>
                     </div>
                 </form>
             </div>

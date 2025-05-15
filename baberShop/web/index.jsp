@@ -50,7 +50,7 @@
 
                     <div class="d-flex gap-2">
                         <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/views/auth/login.jsp">Đăng nhập</a>
-                        <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/register.jsp">Đăng ký</a>
+                        <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/views/auth/register.jsp">Đăng ký</a>
                     </div>
                 </div>
             </div>
