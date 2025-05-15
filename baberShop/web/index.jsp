@@ -1,46 +1,27 @@
+<%-- 
+    Document   : index
+    Created on : May 15, 2025, 2:46:10 PM
+    Author     : LENOVO
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
     <head>
         <meta charset="UTF-8">
         <title>Cut&Styles Carousel</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="CSS/html.css">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            .carousel-item {
-                aspect-ratio: 15 / 5; /* Cân đối chiều rộng và chiều cao theo tỉ lệ banner ngang */
-                overflow: hidden;
-                border-radius: 16px;
-            }
-
-            .carousel-item img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 16px;
-            }
-
-            @media (max-width: 768px) {
-                .carousel-item {
-                    aspect-ratio: 4 / 3; /* Tỉ lệ cao hơn chút cho màn nhỏ */
-                }
-            }
-
-            .carousel-container {
-                margin-top: 20px;
-                margin-bottom: 40px;
-            }
-        </style>
-
-
     </head>
     <body>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+        <nav class="navbar navbar-expand-lg custom-navbar border-bottom shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="image/image_logo/Logo.png" alt="Logo" width="55" height="55" class="me-2">
+                    <img src="image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">
                     Cut&Styles Barber
                 </a>
 
@@ -115,17 +96,5 @@
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    </body>
-</html>z
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
     </body>
 </html>
