@@ -1,13 +1,4 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : May 15, 2025, 2:41:52 PM
-    Author     : LENOVO
-*/
-
-/* navbar */
+/* Navbar */
 .custom-navbar {
     background-color: #201E15 !important;
 }
@@ -74,11 +65,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     }
 }
 
-
-
-/* khung chuyenh anh */
+/* khung carousel */
 .carousel-item {
-    aspect-ratio: 15 / 5; /* Cân đối chiều rộng và chiều cao theo tỉ lệ banner ngang */
+    aspect-ratio: 18 / 5; /* Giảm tỉ lệ chiều cao để không quá dày */
     overflow: hidden;
     border-radius: 16px;
 }
@@ -98,5 +87,323 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 .carousel-container {
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px; /* Giảm khoảng cách dưới carousel */
+}
+
+
+
+
+/* Service */
+.section-title {
+    font-weight: bold;
+    color: #0d3b66;
+    margin-bottom: 20px;
+    padding-left: 5px;
+    border-left: 4px solid #4a90e2;
+    margin-top: -20px;
+}
+.service-card {
+    display: block;
+    text-decoration: none;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+.service-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+.service-info {
+    padding: 16px;
+    color: #333;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.service-info h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.service-info p {
+    font-size: 0.95rem;
+    color: #1e3a8a;
+    margin: 0;
+    font-weight: 500;
+}
+.container {
+    margin-top: 20px;
+}
+.row.mb-4 {
+    margin-bottom: 30px;
+}
+
+
+
+
+/* Cam kết dịch vụ section */
+.commitment-section {
+    background-color: #FFFFFF;
+    padding: 40px 0;
+    margin-top: -80px;
+}
+
+.commitment-header {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.commitment-title {
+    font-weight: bold;
+    color: #0d3b66;
+    margin: 0 0 10px 0;
+    padding-left: 5px;
+    border-left: 4px solid #4a90e2;
+    font-size: 1.5rem;
+}
+
+.subtitle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.commitment-subtitle {
+    color: #666;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.commitment-link {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+.commitment-link:hover {
+    color: #0056b3;
+}
+
+/* Banner styling similar to screenshot */
+.commitment-banner {
+    background-color: #1e3a5f;
+    height: 200px;
+    border-radius: 16px;
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.commitment-banner-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 0 15px;
+}
+
+.banner-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.banner-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Feature boxes - now with 2 columns */
+.commitment-features {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.commitment-feature {
+    text-align: center;
+    padding: 20px 15px;
+}
+
+.feature-content {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.feature-unit {
+    font-size: 1.3rem;
+    color: #1e3a8a;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.feature-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.feature-description {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .subtitle-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .commitment-link {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    .commitment-feature {
+        margin-bottom: 15px;
+    }
+
+    .banner-title {
+        font-size: 1.5rem;
+    }
+
+    .banner-subtitle {
+        font-size: 1rem;
+    }
+
+    .feature-number {
+        font-size: 3.5rem;
+    }
+
+    .feature-title {
+        font-size: 1.7rem;
+    }
+}
+
+
+
+.antam-tintruong-section {
+    background-color: #FFFFFF;
+    padding: 40px 0;
+    margin-top: -100px;
+}
+
+.section-header {
+    margin-bottom: 30px;
+    text-align: relative;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #0d3b66;
+    margin: 0 0 10px 0;
+    padding-left: 5px;
+    border-left: 4px solid #4a90e2;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.section-subtitle {
+    color: #666;
+    margin: 10px 0 0 0;
+    font-size: 1.1rem;
+}
+
+.service-row {
+    margin-top: 20px;
+}
+
+.service-support-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-support-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.service-support-img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.service-support-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-support-card:hover .service-support-img img {
+    transform: scale(1.05);
+}
+
+.service-support-info {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.service-support-info h5 {
+    font-weight: 600;
+    color: #1e3a8a;
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+.card-link:hover {
+    text-decoration: none;
+    color: inherit;
 }
