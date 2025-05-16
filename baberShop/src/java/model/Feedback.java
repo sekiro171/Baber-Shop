@@ -1,32 +1,21 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package model;
 
-import java.time.LocalDateTime;
-
+/**
+ *
+ * @author Sekiro
+ */
 public class Feedback {
     private int id;
-    private int rating;
+    private int customerId;
+    private int staffId;
+    private int appointmentId;
     private String comment;
-    private LocalDateTime createdAt;
-    private User customer;
-    private User barber;
-    private Appointment appointment;
-    private Service service;
 
-    public Feedback() {
-    }
-
-    public Feedback(int id, int rating, String comment, LocalDateTime createdAt, User customer, User barber, Appointment appointment, Service service) {
-        this.id = id;
-        this.rating = rating;
-        this.comment = comment;
-        this.createdAt = createdAt;
-        this.customer = customer;
-        this.barber = barber;
-        this.appointment = appointment;
-        this.service = service;
-    }
-
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -35,12 +24,28 @@ public class Feedback {
         this.id = id;
     }
 
-    public int getRating() {
-        return rating;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public int getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(int staffId) {
+        this.staffId = staffId;
+    }
+
+    public int getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(int appointmentId) {
+        this.appointmentId = appointmentId;
     }
 
     public String getComment() {
@@ -50,46 +55,4 @@ public class Feedback {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public User getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(User customer) {
-        this.customer = customer;
-    }
-
-    public User getBarber() {
-        return barber;
-    }
-
-    public void setBarber(User barber) {
-        this.barber = barber;
-    }
-
-    public Appointment getAppointment() {
-        return appointment;
-    }
-
-    public void setAppointment(Appointment appointment) {
-        this.appointment = appointment;
-    }
-
-    public Service getService() {
-        return service;
-    }
-
-    public void setService(Service service) {
-        this.service = service;
-    }
-    
-    
 }

@@ -1,31 +1,22 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package model;
 
+/**
+ *
+ * @author Sekiro
+ */
 import java.time.LocalDateTime;
 
 public class Appointment {
     private int id;
-    private LocalDateTime appointmentDateTime;
-    private double totalAmount;
-    private boolean isPaidInShop;
+    private LocalDateTime appointmentTime;
+    private int customerId;
+    private int staffId;
 
-    private User customer;
-    private User barber;
-    private Service service;
-
-    public Appointment() {
-    }
-
-    public Appointment(int id, LocalDateTime appointmentDateTime, double totalAmount, boolean isPaidInShop, User customer, User barber, Service service) {
-        this.id = id;
-        this.appointmentDateTime = appointmentDateTime;
-        this.totalAmount = totalAmount;
-        this.isPaidInShop = isPaidInShop;
-        this.customer = customer;
-        this.barber = barber;
-        this.service = service;
-    }
-
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -34,53 +25,27 @@ public class Appointment {
         this.id = id;
     }
 
-    public LocalDateTime getAppointmentDateTime() {
-        return appointmentDateTime;
+    public LocalDateTime getAppointmentTime() {
+        return appointmentTime;
     }
 
-    public void setAppointmentDateTime(LocalDateTime appointmentDateTime) {
-        this.appointmentDateTime = appointmentDateTime;
+    public void setAppointmentTime(LocalDateTime appointmentTime) {
+        this.appointmentTime = appointmentTime;
     }
 
-    public double getTotalAmount() {
-        return totalAmount;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public boolean isIsPaidInShop() {
-        return isPaidInShop;
+    public int getStaffId() {
+        return staffId;
     }
 
-    public void setIsPaidInShop(boolean isPaidInShop) {
-        this.isPaidInShop = isPaidInShop;
+    public void setStaffId(int staffId) {
+        this.staffId = staffId;
     }
-
-    public User getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(User customer) {
-        this.customer = customer;
-    }
-
-    public User getBarber() {
-        return barber;
-    }
-
-    public void setBarber(User barber) {
-        this.barber = barber;
-    }
-
-    public Service getService() {
-        return service;
-    }
-
-    public void setService(Service service) {
-        this.service = service;
-    }
-    
-    
 }

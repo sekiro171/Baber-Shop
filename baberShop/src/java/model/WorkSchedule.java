@@ -1,29 +1,21 @@
 
 package model;
 
+/**
+ *
+ * @author Sekiro
+ */
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class WorkSchedule {
-     private int id;
-    private User barber; 
+    private int id;
+    private int staffId;
     private LocalDate workDate;
     private LocalTime startTime;
     private LocalTime endTime;
-    private String status; 
 
-    public WorkSchedule() {
-    }
-
-    public WorkSchedule(int id, User barber, LocalDate workDate, LocalTime startTime, LocalTime endTime, String status) {
-        this.id = id;
-        this.barber = barber;
-        this.workDate = workDate;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.status = status;
-    }
-
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -32,12 +24,12 @@ public class WorkSchedule {
         this.id = id;
     }
 
-    public User getBarber() {
-        return barber;
+    public int getStaffId() {
+        return staffId;
     }
 
-    public void setBarber(User barber) {
-        this.barber = barber;
+    public void setStaffId(int staffId) {
+        this.staffId = staffId;
     }
 
     public LocalDate getWorkDate() {
@@ -63,14 +55,5 @@ public class WorkSchedule {
     public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
-   
 }
+

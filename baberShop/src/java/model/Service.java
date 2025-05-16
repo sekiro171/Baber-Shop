@@ -4,20 +4,20 @@ package model;
 public class Service {
     private int id;
     private String name;
-    private String description;
     private double price;
-    private int durationInMinutes;
+    private int duration;
+    private String description;
 
     public Service() {
     }
 
-    public Service(int id, String name, String description, double price, int durationInMinutes) {
-        this.id = id;
+    public Service(String name, double price, int duration, String description) {
         this.name = name;
-        this.description = description;
         this.price = price;
-        this.durationInMinutes = durationInMinutes;
+        this.duration = duration;
+        this.description = description;
     }
+    
 
     public int getId() {
         return id;
@@ -35,14 +35,6 @@ public class Service {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -51,13 +43,19 @@ public class Service {
         this.price = price;
     }
 
-    public int getDurationInMinutes() {
-        return durationInMinutes;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setDurationInMinutes(int durationInMinutes) {
-        this.durationInMinutes = durationInMinutes;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
-    
-    
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
