@@ -17,22 +17,19 @@
     </head>
     <body>
 
-        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg custom-navbar border-bottom shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">
+                    <img src="${pageContext.request.contextPath}/image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">                   
                     Cut&Styles Barber
                 </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Trang chủ</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Trang chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Về chúng tôi</a>
@@ -47,7 +44,6 @@
                             <a class="nav-link" href="#">Đặt lịch</a>
                         </li>
                     </ul>
-
                     <div class="d-flex gap-2">
                         <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/views/auth/login.jsp">Đăng nhập</a>
                         <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/views/auth/register.jsp">Đăng ký</a>
@@ -55,7 +51,6 @@
                 </div>
             </div>
         </nav>
-
         <!-- Carousel -->
         <div class="container carousel-container">
             <div id="mainCarousel"
@@ -99,8 +94,8 @@
                 </div>
             </div>
         </div>
-        <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
         <!-- Service -->
         <div class="container py-5">
@@ -108,7 +103,7 @@
             <h4 class="section-title">| DỊCH VỤ TÓC</h4>
             <div class="row mb-4">
                 <div class="col-md-4 mb-3">
-                    <a href="cat_toc.jsp" class="service-card">
+                    <a href="${pageContext.request.contextPath}/views/service/cutHairService.jsp" class="service-card">
                         <img src="image/image_service/cutHair.png" alt="Cắt tóc">
                         <div class="service-info">
                             <h5>Cắt tóc</h5>
@@ -117,7 +112,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <a href="uon_dinh_hinh.jsp" class="service-card">
+                    <a href="${pageContext.request.contextPath}/views/service/hairStylesService.jsp" class="service-card">
                         <img src="image/image_service/uon.png" alt="Uốn định hình">
                         <div class="service-info">
                             <h5>Uốn định hình</h5>
@@ -126,7 +121,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <a href="doi_mau.jsp" class="service-card">
+                    <a href="${pageContext.request.contextPath}/views/service/hairStylesService.jsp" class="service-card">
                         <img src="image/image_service/nhuom.png" alt="Thay đổi màu tóc">
                         <div class="service-info">
                             <h5>Thay đổi màu tóc</h5>
@@ -140,7 +135,7 @@
             <h4 class="section-title">| THƯ GIÃN VÀ CHĂM SÓC DA</h4>
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <a href="goi_thu_gian.jsp" class="service-card">
+                    <a href="${pageContext.request.contextPath}/views/service/massageService.jsp" class="service-card">
                         <img src="image/image_service/massage.png" alt="Gội dưỡng sinh thư giãn">
                         <div class="service-info">
                             <h5>Gội dưỡng sinh thư giãn</h5>
@@ -148,7 +143,7 @@
                     </a>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <a href="lay_ray_tai.jsp" class="service-card">
+                    <a href="${pageContext.request.contextPath}/views/service/massageService.jsp" class="service-card">
                         <img src="image/image_service/rayTai.png" alt="Lấy ráy tai êm">
                         <div class="service-info">
                             <h5>Lấy ráy tai êm</h5>
@@ -194,7 +189,7 @@
             </div>
         </div>
 
-        <!-- AN TÂM & TIN TƯỞNG Section -->
+
         <!-- AN TÂM & TIN TƯỞNG Section -->
         <div class="antam-tintruong-section py-5">
             <div class="container">
@@ -234,5 +229,65 @@
                 </div>
             </div>
         </div>
+
+        <!-- map -->
+        <section class="map-section section">
+            <div class="container">
+                <h2 data-key="map-title">Bản Đồ Cut&Styles Barber</h2>
+                <p class="text-center mb-5" data-key="map-subtitle">khu đô thị FPT city, Hòa Hải, Ngũ Hành Sơn, Đà Nẵng Cut&Styles Barber là
+                    điểm đến lý tưởng để bạn có được sự phục vụ tốt nhất.</p>
+                <div class="map-container">
+                    <iframe class="map-iframe"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.856069316467!2d108.25831637589107!3d15.968891042114784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142116949840599%3A0x365b35580f52e8d5!2zxJDhuqFpIGjhu41jIEZQVCDEkMOgIE7hurVuZw!5e0!3m2!1svi!2s!4v1747405983302!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="Bản đồ Cut&Styles Barber " style="border:0;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- Logo and About -->
+                    <div class="col-lg-4 col-md-6 footer-col">
+                        <img src="image/image_logo/LogoShop.png" alt="Cut&Styles Logo" class="footer-logo">                      
+                    </div>
+
+                    <!-- Links -->
+                    <div class="col-lg-4 col-md-6 footer-col">
+                        <h4 class="footer-title">Liên kết nhanh</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Liên hệ nhượng quyền</a></li>
+                            <li><a href="#">Đối tác</a></li>
+                            <li><a href="#">Chính sách cam kết</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-lg-4 col-md-6 footer-col">
+                        <h4 class="footer-title">Thông tin liên hệ</h4>
+                        <div class="footer-contact">
+                            <p><i class="bi bi-geo-alt-fill"></i> <span>Khu đô thị FPT city, Hòa Hải, Ngũ Hành Sơn, Đà Nẵng</span></p>
+                            <p><i class="bi bi-telephone-fill"></i> <span>Liên hệ học nghề tóc: 0774511941</span></p>
+                            <p><i class="bi bi-clock-fill"></i> <span>Giờ phục vụ: Thứ 2 đến Chủ Nhật, 8h30 - 20h30</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer bottom -->
+                <div class="row footer-bottom">
+                    <div  class="col-12 text-center">
+                        <p>&copy; 2025 Cut&Styles Barber. Tất cả quyền được bảo lưu.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     </body>
 </html>

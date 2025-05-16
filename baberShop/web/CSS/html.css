@@ -96,7 +96,7 @@
 /* Service */
 .section-title {
     font-weight: bold;
-    color: #0d3b66;
+    color:  #1d1d1b;
     margin-bottom: 20px;
     padding-left: 5px;
     border-left: 4px solid #4a90e2;
@@ -128,7 +128,7 @@
 }
 .service-info {
     padding: 16px;
-    color: #333;
+    color:  #1d1d1b;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -140,7 +140,7 @@
 }
 .service-info p {
     font-size: 0.95rem;
-    color: #1e3a8a;
+    color:  #1d1d1b;
     margin: 0;
     font-weight: 500;
 }
@@ -402,8 +402,120 @@
     color: inherit;
     height: 100%;
 }
-
 .card-link:hover {
     text-decoration: none;
     color: inherit;
+}
+
+/*Map*/
+.map-section{
+    background:#fff;
+}
+/* CSS để thay đổi màu của h2 trong map-section */
+.map-section h2 {
+    color: #0D3B66; /* Màu xanh dương */
+    font-size: 2rem; /* Tùy chỉnh kích thước chữ */
+    font-weight: bold; /* Làm chữ đậm */
+    text-align: center; /* Căn giữa */
+}
+
+.map-container{
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    height: 28.125rem;
+}
+.map-container iframe{
+    width: 100%;
+    height: 100%;
+    border:none;
+}
+
+
+/*footer*/
+.footer {
+    background-color: #201E15;
+    color: #f5f5f5;
+    padding: 40px 0 20px;
+    margin-top: 20px;
+}
+
+.footer-logo {
+    max-width: 180px;
+    margin-bottom: 20px;
+  
+}
+
+.footer-title {
+    font-weight: 700;
+    color: #d4af37;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #d4af37;
+}
+
+.footer-links {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: block;
+}
+
+.footer-links a:hover {
+    color: #d4af37;
+}
+
+.footer-contact {
+    margin-bottom: 15px;
+}
+
+.footer-contact i {
+    color: #d4af37;
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-contact span {
+    display: inline-block;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+.social-icons a {
+    display: inline-block;
+    color: #f5f5f5;
+    margin-right: 15px;
+    font-size: 20px;
+    transition: color 0.2s ease;
+}
+.social-icons a:hover {
+    color: #d4af37;
+}
+@media (max-width: 767px) {
+    .footer-col {
+        margin-bottom: 30px;
+    }
 }
