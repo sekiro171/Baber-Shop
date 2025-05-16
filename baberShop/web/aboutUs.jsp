@@ -20,7 +20,7 @@
 
             h2, h3, h4 {
                 font-family: 'Poppins', sans-serif;
-                color:
+                color:#1d1d1b
                     
                     ;
                 font-weight: 600;
