@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : May 15, 2025, 2:46:10 PM
-    Author     : LENOVO
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
@@ -14,13 +8,14 @@
         <link rel="stylesheet" href="CSS/html.css">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     </head>
     <body>
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg custom-navbar border-bottom shadow-sm">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="#">
+                <a class="navbar-brand d-flex align-items-center" href="index.jsp">
                     <img src="image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">
                     Cut&Styles Barber
                 </a>
@@ -32,13 +27,13 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Trang chủ</a>
+                            <a class="nav-link" href="index.jsp">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Về chúng tôi</a>
+                            <a class="nav-link" href="aboutUs.jsp">Về chúng tôi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nhượng quyền</a>
+                            <a class="nav-link" href="franchise.jsp">Nhượng quyền</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Đối tác</a>
