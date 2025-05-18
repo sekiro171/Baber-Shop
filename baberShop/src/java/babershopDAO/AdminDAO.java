@@ -1,5 +1,6 @@
 package babershopDAO;
 
+import static babershopDAO.StaffDAO.getConnect;
 import static babershopDatabase.databaseInfo.DBURL;
 import static babershopDatabase.databaseInfo.DRIVERNAME;
 import static babershopDatabase.databaseInfo.PASSDB;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Admin;
 import model.Customer;
+import model.Staff;
 
 public class AdminDAO {
 
@@ -27,6 +29,23 @@ public class AdminDAO {
             return con;
         } catch (SQLException e) {
             System.out.println("Error: " + e);
+        }
+        return null;
+    }
+    
+  public Admin checkAdmin(String username, String password) {
+        String sql = "SELECT first_name, last_name, email, phone_number FROM Admin WHERE email = ? and password = ?";
+        try (Connection con = getConnect()) {
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, username);
+            st.setString(2, password);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Admin admin = new Admin(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("phone_number"));
+                return admin;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
         }
         return null;
     }

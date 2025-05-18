@@ -18,7 +18,7 @@ INSERT INTO Appointment (appointment_time, status, customer_id, staff_id)
 VALUES ('', '', 0, 0); -- Thêm thông tin vào
 
 -- Chèn dữ liệu vào bảng Feedback
-INSERT INTO Feedback (customer_id, staff_id, rating, comment, appointment_id)
+INSERT INTO Feedback (customer_id, staff_id, rating, comment, appointment_id, feedback_time, rate)
 VALUES (0, 0, 0, '', 0); -- Thêm thông tin vào
 
 -- Chèn dữ liệu vào bảng WorkSchedule

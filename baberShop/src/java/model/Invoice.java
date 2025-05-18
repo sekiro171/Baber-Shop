@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author Sekiro
- */
 import java.time.LocalDate;
 
 public class Invoice {
@@ -18,6 +10,19 @@ public class Invoice {
     private int appointmentId;
     private Integer voucherId;
 
+    public Invoice() {
+    }
+
+    public Invoice(double amount, String paymentStatus, LocalDate receivedDate, int appointmentId, Integer voucherId) {
+        this.amount = amount;
+        this.paymentStatus = paymentStatus;
+        this.receivedDate = receivedDate;
+        this.appointmentId = appointmentId;
+        this.voucherId = voucherId;
+    }
+
+    
+    
     // Getters and Setters
     public int getId() {
         return id;

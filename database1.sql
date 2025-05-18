@@ -10,7 +10,8 @@ CREATE TABLE Staff (
     last_name NVARCHAR(100) NOT NULL,
     email NVARCHAR(100) NOT NULL UNIQUE,
     password NVARCHAR(100) NOT NULL,
-    phone_number NVARCHAR(15) NOT NULL UNIQUE
+    phone_number NVARCHAR(15) NOT NULL UNIQUE,
+	status INT NOT NULL DEFAULT 1
 );
 GO
 
@@ -32,7 +33,8 @@ CREATE TABLE Customer (
     last_name NVARCHAR(100) NOT NULL,
     email NVARCHAR(100) NOT NULL UNIQUE,
     password NVARCHAR(100) NOT NULL,
-    phone_number NVARCHAR(15) NOT NULL UNIQUE
+    phone_number NVARCHAR(15) NOT NULL UNIQUE,
+	status INT NOT NULL DEFAULT 1
 );
 GO
 
@@ -74,7 +76,10 @@ CREATE TABLE Feedback (
     customer_id INT NOT NULL,
     staff_id INT,
     appointment_id INT NOT NULL,
+	rate INT NOT NULL,
+	feedback_time DATETIME,
     comment NVARCHAR(500),
+	feedback_time DATETIME,
     FOREIGN KEY (customer_id) REFERENCES Customer(id),
     FOREIGN KEY (staff_id) REFERENCES Staff(id),
     FOREIGN KEY (appointment_id) REFERENCES Appointment(id)

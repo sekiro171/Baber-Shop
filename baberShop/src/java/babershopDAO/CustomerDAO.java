@@ -53,6 +53,23 @@ public class CustomerDAO {
         return null;
     }
     
+      public Customer checkCustomer(String username, String password) {
+        String sql = "SELECT first_name, last_name, email, phone_number FROM Customer WHERE email = ? and password = ? and [status] = 1";
+        try (Connection con = getConnect()) {
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, username);
+            st.setString(2, password);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Customer customer = new Customer(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("phone_number"));
+                return customer;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+    
     public static List<Customer> getAllCustomer(){
         List<Customer> customers = new ArrayList<>();
         String sql = "SELECT first_name, last_name, email, phone_number FROM [Customer]" ;

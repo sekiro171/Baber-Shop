@@ -4,6 +4,7 @@
  */
 package babershopDAO;
 
+import static babershopDAO.CustomerDAO.getConnect;
 import static babershopDatabase.databaseInfo.DBURL;
 import static babershopDatabase.databaseInfo.DRIVERNAME;
 import static babershopDatabase.databaseInfo.PASSDB;
@@ -18,11 +19,8 @@ import java.util.List;
 import model.Customer;
 import model.Staff;
 
-/**
- *
- * @author Sekiro
- */
 public class StaffDAO {
+
     public static Connection getConnect() {
         try {
             Class.forName(DRIVERNAME);
@@ -37,15 +35,14 @@ public class StaffDAO {
         }
         return null;
     }
-    
-    
-    public static Staff  getStaff (int id){
+
+    public static Staff getStaff(int id) {
         String sql = "SELECT first_name, last_name, email, phone_number FROM [Staff] WHERE id = ?";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 String firstName = rs.getString(1);
                 String lastName = rs.getString(2);
                 String email = rs.getString(3);
@@ -54,19 +51,36 @@ public class StaffDAO {
                 System.out.println(staff);
                 return staff;
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
         return null;
     }
-    
-    public static List<Staff> getAllStaffs(){
+
+    public Staff checkStaff(String username, String password) {
+        String sql = "SELECT first_name, last_name, email, phone_number FROM Customer WHERE email = ? and password = ? and [status] = 1";
+        try (Connection con = getConnect()) {
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, username);
+            st.setString(2, password);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Staff staff = new Staff(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("phone_number"));
+                return staff;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public static List<Staff> getAllStaffs() {
         List<Staff> staffs = new ArrayList<>();
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Staff]" ;
-        try (Connection con = getConnect()){
+        String sql = "SELECT first_name, last_name, email, phone_number FROM [Staff]";
+        try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 String firstName = rs.getString(1);
                 String lastName = rs.getString(2);
                 String email = rs.getString(3);
@@ -75,15 +89,15 @@ public class StaffDAO {
                 staffs.add(staff);
             }
             return staffs;
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
         return null;
     }
-    
-    public static void insertStaff (String firstName, String lastName, String email, String password, String phoneNumber){
-         String sql = "INSERT INTO Staff (first_name, last_name, email, password, phone_number) VALUES (?,?,?,?,?)";
-         try (Connection con = getConnect()){
+
+    public static void insertStaff(String firstName, String lastName, String email, String password, String phoneNumber) {
+        String sql = "INSERT INTO Staff (first_name, last_name, email, password, phone_number) VALUES (?,?,?,?,?)";
+        try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, firstName);
             ps.setString(2, lastName);
@@ -91,45 +105,44 @@ public class StaffDAO {
             ps.setString(4, password);
             ps.setString(5, phoneNumber);
             ps.executeUpdate();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
-    
- public static void updateStaff(int id, String firstName, String lastName, String email, String password, String phoneNumber){
 
-    String sql = "UPDATE Staff SET first_name = ?, last_name = ?, email = ?, password = ?, phone_number = ? WHERE id = ?";
-    
-    try (Connection con = getConnect()) {
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, firstName);
-        ps.setString(2, lastName);
-        ps.setString(3, email);
-        ps.setString(4, password);
-        ps.setString(5, phoneNumber);
-        ps.setInt(6, id); 
-        ps.executeUpdate();
-    } catch (Exception e) {
-        System.out.println(e);
+    public static void updateStaff(int id, String firstName, String lastName, String email, String password, String phoneNumber) {
+
+        String sql = "UPDATE Staff SET first_name = ?, last_name = ?, email = ?, password = ?, phone_number = ? WHERE id = ?";
+
+        try (Connection con = getConnect()) {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
+            ps.setString(3, email);
+            ps.setString(4, password);
+            ps.setString(5, phoneNumber);
+            ps.setInt(6, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
-}
-    
-    public static boolean deleteStaff(int id){
+
+    public static boolean deleteStaff(int id) {
         String sql = "update status from Staff = 0 where id =?";
-        try (Connection con = getConnect()){
+        try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 return true;
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
         return false;
     }
-    
-    
+
     public static void main(String[] args) {
         System.out.println("1");
     }

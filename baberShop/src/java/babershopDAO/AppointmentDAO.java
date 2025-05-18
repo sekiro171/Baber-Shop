@@ -9,12 +9,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import model.Appointment;
 import model.Service;
-import model.Staff;
 
-public class ServiceDAO {
+public class AppointmentDAO {
 
     public static Connection getConnect() {
         try {
@@ -31,19 +33,19 @@ public class ServiceDAO {
         return null;
     }
 
-    public static Service getService(int id) {
-        String sql = "Select name ,price ,duration ,description from Service where id= ?";
+    public static Appointment getAppointment(int id) {
+        String sql = "Select appointment_time,  customer_id, staff_id from Appointment where id= ?";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String name = rs.getString(1);
-                double price = rs.getDouble(2);
-                int duration = rs.getInt(3);
-                String description = rs.getString(4);
-                Service service = new Service(name, price, duration, description);
-                return service;
+                String date = rs.getString(1);
+                LocalDateTime appointment_time = LocalDateTime.parse(date, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                int customerId = rs.getInt(2);
+                int staff = rs.getInt(3);
+                Appointment appointment = new Appointment(appointment_time, customerId, staff);
+                return appointment;
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -51,60 +53,55 @@ public class ServiceDAO {
         return null;
     }
 
-    public static List<Service> getAllService() {
-        List<Service> services = new ArrayList<>();
-        String sql = "Select name ,price ,duration ,description from Service";
+    public static List<Appointment> getAllAppointments() {
+        List<Appointment> appointments = new ArrayList<>();
+        String sql = "Select appointment_time,  customer_id, staff_id from Appointment";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                String name = rs.getString(1);
-                double price = rs.getDouble(2);
-                int duration = rs.getInt(3);
-                String description = rs.getString(4);
-                Service service = new Service(name, price, duration, description);
-                services.add(service);
+                String date = rs.getString(1);
+                LocalDateTime appointment_time = LocalDateTime.parse(date, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                int customerId = rs.getInt(2);
+                int staff = rs.getInt(3);
+                Appointment appointment = new Appointment(appointment_time, customerId, staff);
+                appointments.add(appointment);
+                return appointments;
             }
-            return services;
         } catch (Exception e) {
             System.out.println(e);
         }
         return null;
     }
 
-    public static void insertService(String name, double price, int duration, String description) {
-        String sql = "INSERT INTO Service (name, price, duration, description) VALUES (?,?,?,?)";
+    public static void insertAppointment(String appointmentTime, int customerId, int staffId) {
+        String sql = "INSERT INTO Appointment (appointment_time, customer_id, staff_id, ) VALUES (?,?,?)";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setDouble(2, price);
-            ps.setInt(3, duration);
-            ps.setString(4, description);
+            ps.setString(1, appointmentTime);
+            ps.setInt(2, customerId);
+            ps.setInt(3, staffId);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public static void updateService(int id, String name, double price, int duration, String description) {
+    public static void updateAppointment(int id, int staffId) {
 
-        String sql = "UPDATE Service SET name = ?, price = ?, duration = ?, description = ? WHERE id = ?";
+        String sql = "UPDATE Appointment SET staff_id = ? WHERE id = ?";
 
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setDouble(2, price);
-            ps.setInt(3, duration);
-            ps.setString(4, description);
-            ps.setInt(5, id);
+            ps.setInt(1, staffId);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public static void deleteService(int id) {
-        String sql = "delete from Service where id=?";
+    public static void deleteAppointment(int id) {
+        String sql = "delete from Appointment where id=?";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
@@ -113,5 +110,4 @@ public class ServiceDAO {
             System.out.println(e);
         }
     }
-
 }
