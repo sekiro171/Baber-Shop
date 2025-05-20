@@ -16,6 +16,18 @@ public class Appointment {
     private int customerId;
     private int staffId;
 
+    public Appointment(LocalDateTime appointmentTime, int customerId, int staffId) {
+        this.appointmentTime = appointmentTime;
+        this.customerId = customerId;
+        this.staffId = staffId;
+    }
+
+    public Appointment() {
+    }
+
+    
+    
+    
     // Getters and Setters
     public int getId() {
         return id;

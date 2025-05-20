@@ -14,6 +14,16 @@ public class Voucher {
     private String status;
     private int adminId;
 
+    public Voucher() {
+    }
+
+    public Voucher(String code, double value, LocalDate expiryDate, String status) {
+        this.code = code;
+        this.value = value;
+        this.expiryDate = expiryDate;
+        this.status = status;
+    }
+
     // Getters and Setters
     public int getId() {
         return id;

@@ -9,12 +9,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import model.Service;
-import model.Staff;
+import model.Voucher;
 
-public class ServiceDAO {
+public class VoucherDAO {
 
     public static Connection getConnect() {
         try {
@@ -31,19 +33,20 @@ public class ServiceDAO {
         return null;
     }
 
-    public static Service getService(int id) {
-        String sql = "Select name ,price ,duration ,description from Service where id= ?";
+    public static Voucher getVoucher(int id) {
+        String sql = "Select code, value, expiry_date, status from Voucher where id= ?";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String name = rs.getString(1);
-                double price = rs.getDouble(2);
-                int duration = rs.getInt(3);
-                String description = rs.getString(4);
-                Service service = new Service(name, price, duration, description);
-                return service;
+                String code = rs.getString(1);
+                double value = rs.getDouble(2);
+                String date = rs.getString(3);
+                LocalDate expiryDate = LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
+                String status = rs.getString(4);
+                Voucher voucher = new Voucher(code, value, expiryDate, status);
+                return voucher;
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -51,28 +54,30 @@ public class ServiceDAO {
         return null;
     }
 
-    public static List<Service> getAllService() {
-        List<Service> services = new ArrayList<>();
-        String sql = "Select name ,price ,duration ,description from Service";
+    public static List<Voucher> getAllVoucers() {
+        List<Voucher> vouchers = new ArrayList<>();
+        String sql = "Select code, value, expiry_date, status from Voucher";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                String name = rs.getString(1);
-                double price = rs.getDouble(2);
-                int duration = rs.getInt(3);
-                String description = rs.getString(4);
-                Service service = new Service(name, price, duration, description);
-                services.add(service);
+                String code = rs.getString(1);
+                double value = rs.getDouble(2);
+                String date = rs.getString(3);
+                LocalDate expiryDate = LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
+                String status = rs.getString(4);
+                Voucher voucher = new Voucher(code, value, expiryDate, status);
+
+                vouchers.add(voucher);
             }
-            return services;
+            return vouchers;
         } catch (Exception e) {
             System.out.println(e);
         }
         return null;
     }
 
-    public static void insertService(String name, double price, int duration, String description) {
+    public static void insertVouher (String name, double price, int duration, String description) {
         String sql = "INSERT INTO Service (name, price, duration, description) VALUES (?,?,?,?)";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -86,25 +91,8 @@ public class ServiceDAO {
         }
     }
 
-    public static void updateService(int id, String name, double price, int duration, String description) {
-
-        String sql = "UPDATE Service SET name = ?, price = ?, duration = ?, description = ? WHERE id = ?";
-
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setDouble(2, price);
-            ps.setInt(3, duration);
-            ps.setString(4, description);
-            ps.setInt(5, id);
-            ps.executeUpdate();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static void deleteService(int id) {
-        String sql = "delete from Service where id=?";
+    public static void deleteVoucher(int id) {
+        String sql = "delete from Voucher where id=?";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
@@ -113,5 +101,4 @@ public class ServiceDAO {
             System.out.println(e);
         }
     }
-
 }
