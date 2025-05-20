@@ -130,6 +130,7 @@
                     </a>
                 </div>
             </div>
+                        
 
             <!-- THƯ GIÃN VÀ CHĂM SÓC DA -->
             <h4 class="section-title">| THƯ GIÃN VÀ CHĂM SÓC DA</h4>
@@ -159,7 +160,7 @@
                     <h3 class="commitment-title">| CAM KẾT CUT&STYLES CARE</h3>
                     <div class="subtitle-row">
                         <p class="commitment-subtitle">Sự hài lòng của anh là ưu tiên hàng đầu của Cut&Styles</p>
-                        <a href="${pageContext.request.contextPath}/views/commitment/details.jsp" class="commitment-link">Xem tất cả →</a>
+                        <a href="${pageContext.request.contextPath}/views/commit/details.jsp" class="commitment-link">Xem tất cả →</a>
                     </div>
                 </div>
 
@@ -201,7 +202,7 @@
                 <div class="row service-row">
                     <!-- Left service card -->
                     <div class="col-md-6 mb-4">
-                        <a href="${pageContext.request.contextPath}/views/support/faqs.jsp" class="card-link">
+                        <a href="${pageContext.request.contextPath}/views/commit/support.jsp" class="card-link">
                             <div class="service-support-card">
                                 <div class="service-support-img">
                                     <img src="image/image_service/support1.png" alt="Người đang tư vấn">
@@ -215,7 +216,7 @@
 
                     <!-- Right service card -->
                     <div class="col-md-6 mb-4">
-                        <a href="${pageContext.request.contextPath}/views/support/storage.jsp" class="card-link">
+                        <a href="${pageContext.request.contextPath}/views/commit/storage.jsp" class="card-link">
                             <div class="service-support-card">
                                 <div class="service-support-img">
                                     <img src="image/image_service/support2.png" alt="Bảo quản xe">

@@ -77,7 +77,7 @@
                                 <div class="price">
                                     <span class="amount">Chỉ từ 379,000 VNĐ</span>
                                 </div>
-                                <a href="#" class="more-info">Đặt lịch ngay <i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                                 <div class="price">
                                     <span class="amount">Chỉ từ 448,000 VNĐ</span>
                                 </div>
-                                <a href="#" class="more-info">Đặt lịch ngay <i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                 
                 <h2 class="section-title text-center my-5">THAY ĐỔI MÀU TÓC</h2>
        
-                <div class="row g-4 justify-content-center">
+                <div class="row g-4 justify-content-center" id="nhuom-toc">
                     <!-- Service Item 3 -->
                     <div class="col-md-6 col-lg-4">
                         <div class="service-card h-100">
@@ -135,7 +135,7 @@
                                 <div class="price">
                                     <span class="amount">Liên hệ để biết giá</span>
                                 </div>
-                                <a href="#" class="more-info">Đặt lịch ngay <i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
                                 <div class="price">
                                     <span class="amount">Liên hệ để biết giá</span>
                                 </div>
-                                <a href="#" class="more-info">Đặt lịch ngay <i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
