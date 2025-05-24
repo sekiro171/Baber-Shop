@@ -28,16 +28,13 @@
                             <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Về chúng tôi</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/aboutUs.jsp">Về chúng tôi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nhượng quyền</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/franchise.jsp">Nhượng quyền</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đối tác</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đặt lịch</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/views/booking/booking.jsp">Đặt lịch</a>
                         </li>
                     </ul>
                     <div class="d-flex gap-2">
@@ -77,7 +74,7 @@
                                 <div class="price">
                                     <span class="amount">Chỉ từ 379,000 VNĐ</span>
                                 </div>
-                                <a href="#" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+                                <a href="${pageContext.request.contextPath}/views/service/uontieuchuan.jsp" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -104,7 +101,7 @@
                                 <div class="price">
                                     <span class="amount">Chỉ từ 448,000 VNĐ</span>
                                 </div>
-                                <a href="#" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+                                <a href="${pageContext.request.contextPath}/views/service/uoncaocap.jsp" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -135,7 +132,7 @@
                                 <div class="price">
                                     <span class="amount">Liên hệ để biết giá</span>
                                 </div>
-                                <a href="#" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+                                <a href="${pageContext.request.contextPath}/views/service/nhuomtieuchuan.jsp" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -162,7 +159,7 @@
                                 <div class="price">
                                     <span class="amount">Liên hệ để biết giá</span>
                                 </div>
-                                <a href="#" class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
+                                <a href="${pageContext.request.contextPath}/views/service/nhuomcaocap.jsp"class="more-info">Tìm hiểu thêm <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -172,7 +169,7 @@
 
         <!-- Booking CTA Section -->
         <div class="booking-cta py-5 text-center">
-            <a href="#" class="btn btn-primary btn-lg">Đặt lịch ngay</a>
+            <a href="${pageContext.request.contextPath}/views/booking/booking.jsp" class="btn btn-primary btn-lg">Đặt lịch ngay</a>
         </div>
         
         <!-- Footer -->
@@ -188,10 +185,9 @@
                     <div class="col-lg-4 col-md-6 footer-col">
                         <h4 class="footer-title">Liên kết nhanh</h4>
                         <ul class="footer-links">
-                            <li><a href="#">Về chúng tôi</a></li>
-                            <li><a href="#">Liên hệ nhượng quyền</a></li>
-                            <li><a href="#">Đối tác</a></li>
-                            <li><a href="#">Chính sách cam kết</a></li>
+                            <li><a href="${pageContext.request.contextPath}/views/common/aboutUs.jsp">Về chúng tôi</a></li>
+                            <li><a href="${pageContext.request.contextPath}/views/common/franchise.jsp">Liên hệ nhượng quyền</a></li>
+                            <li><a href="${pageContext.request.contextPath}/views/commit/details.jsp">Chính sách cam kết</a></li>
                         </ul>
                     </div>
 

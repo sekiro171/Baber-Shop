@@ -35,22 +35,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" name="email" placeholder="Nhập địa chỉ email" required>
-                </div>
-
-                <div class="form-group">
                     <label for="phone">Số điện thoại</label>
                     <i class="fas fa-phone"></i>
                     <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
                 </div>
 
+
                 <div class="form-group">
-                    <label for="username">Tên đăng nhập</label>
-                    <i class="fas fa-user-circle"></i>
-                    <input type="text" id="username" name="username" placeholder="Tạo tên đăng nhập" required>
+                    <label for="email">Email</label>
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="Nhập địa chỉ email" required>
                 </div>
+
 
                 <div class="form-group">
                     <label for="password">Mật khẩu</label>
@@ -85,15 +81,6 @@
 
                 <button type="submit" class="register-btn" id="registerBtn">Đăng ký</button>
 
-                <div class="social-register">
-                    <p>Hoặc đăng ký với</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon google"><i class="fab fa-google"></i></a>
-                        <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-
                 <div class="login-link">
                     Bạn đã có tài khoản? <a href="login.jsp">Đăng nhập ngay</a>
                 </div>
@@ -119,28 +106,24 @@
             function checkPasswordStrength() {
                 const password = document.getElementById('password').value;
 
-                // Kiểm tra độ dài
                 if (password.length >= 8) {
                     document.getElementById('length').innerHTML = '<i class="fas fa-check-circle" style="color: #4CAF50;"></i> Ít nhất 8 ký tự';
                 } else {
                     document.getElementById('length').innerHTML = '<i class="far fa-circle"></i> Ít nhất 8 ký tự';
                 }
 
-                // Kiểm tra chữ hoa
                 if (/[A-Z]/.test(password)) {
                     document.getElementById('uppercase').innerHTML = '<i class="fas fa-check-circle" style="color: #4CAF50;"></i> Ít nhất 1 chữ cái viết hoa';
                 } else {
                     document.getElementById('uppercase').innerHTML = '<i class="far fa-circle"></i> Ít nhất 1 chữ cái viết hoa';
                 }
 
-                // Kiểm tra chữ thường
                 if (/[a-z]/.test(password)) {
                     document.getElementById('lowercase').innerHTML = '<i class="fas fa-check-circle" style="color: #4CAF50;"></i> Ít nhất 1 chữ cái viết thường';
                 } else {
                     document.getElementById('lowercase').innerHTML = '<i class="far fa-circle"></i> Ít nhất 1 chữ cái viết thường';
                 }
 
-                // Kiểm tra số
                 if (/[0-9]/.test(password)) {
                     document.getElementById('number').innerHTML = '<i class="fas fa-check-circle" style="color: #4CAF50;"></i> Ít nhất 1 số';
                 } else {
@@ -172,13 +155,11 @@
                 const confirmPassword = document.getElementById('confirmPassword').value;
                 const terms = document.getElementById('terms').checked;
 
-                // Kiểm tra mật khẩu mạnh
                 const isStrong = password.length >= 8 &&
                         /[A-Z]/.test(password) &&
                         /[a-z]/.test(password) &&
                         /[0-9]/.test(password);
 
-                // Kiểm tra mật khẩu trùng khớp
                 const isMatch = password === confirmPassword;
 
                 if (!isStrong || !isMatch || !terms) {
