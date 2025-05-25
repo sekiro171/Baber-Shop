@@ -489,9 +489,9 @@
                         </a>
                     </div>
                     <div class="nav-item">
-                        <a href="${pageContext.request.contextPath}/views/admin/storeManagement.jsp" class="nav-link">
+                        <a href="${pageContext.request.contextPath}/views/admin/serviceManagement.jsp" class="nav-link">
                             <i class="fas fa-store"></i>
-                            <span>Quản lý Cửa hàng</span>
+                            <span>Quản lý Dịch Vụ</span>
                         </a>
                     </div>
                     <div class="nav-item">

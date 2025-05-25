@@ -145,7 +145,7 @@
                         <div class="booking-cta py-5 text-center">
                             <h4 class="mb-4">Trải nghiệm ngay dịch vụ chất lượng tại Cut&Styles Barber</h4>
                             <p class="mb-4">Tại chi nhánh duy nhất: Khu đô thị FPT city, Hòa Hải, Ngũ Hành Sơn, Đà Nẵng</p>
-                            <a href="#" class="btn btn-primary btn-lg">Đặt lịch ngay</a>
+                            <a href="${pageContext.request.contextPath}/views/booking/booking.jsp" class="btn btn-primary btn-lg">Đặt lịch ngay</a>
                         </div>
                     </div>
                 </div>

@@ -546,7 +546,7 @@
         <nav class="navbar navbar-expand-lg custom-navbar border-bottom shadow-sm">
             <div class="container-fluid px-4">
                 <a class="navbar-brand d-flex align-items-center" href="index.jsp">
-                    <img src="image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">
+                    <img src="${pageContext.request.contextPath}/image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -581,7 +581,7 @@
                     <div class="logo-subtitle">Admin Dashboard</div>
                 </div>
 
-                               <div class="nav-menu">
+                <div class="nav-menu">
                     <div class="nav-item">
                         <a href="${pageContext.request.contextPath}/views/admin/dashboard.jsp" class="nav-link">
                             <i class="fas fa-tachometer-alt"></i>
@@ -613,9 +613,9 @@
                         </a>
                     </div>
                     <div class="nav-item">
-                        <a href="${pageContext.request.contextPath}/views/admin/storeManagement.jsp" class="nav-link">
+                        <a href="${pageContext.request.contextPath}/views/admin/serviceManagement.jsp" class="nav-link">
                             <i class="fas fa-store"></i>
-                            <span>Quản lý Cửa hàng</span>
+                            <span>Quản lý Dịch Vụ</span>
                         </a>
                     </div>
                     <div class="nav-item">
@@ -856,7 +856,7 @@
                     }
 
                     // Here you would typically send an AJAX request to update the database
-                   
+
                 }
             }
 

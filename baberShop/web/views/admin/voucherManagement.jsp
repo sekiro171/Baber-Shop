@@ -10,8 +10,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
         <style>
-            
-             /* Top Navigation Bar */
             .custom-navbar {
                 background: rgba(29, 29, 27, 0.95) !important;
                 backdrop-filter: blur(10px);
@@ -72,7 +70,7 @@
                 min-height: 100vh;
                 padding-top: 70px;
             }
-            
+
             * {
                 margin: 0;
                 padding: 0;
@@ -90,23 +88,18 @@
                 color: #fff;
             }
 
-            .dashboard-layout {
-                display: flex;
-                min-height: 100vh;
-            }
-
-            /* Sidebar - Same as dashboard */
             .sidebar {
                 width: 280px;
                 background: rgba(29, 29, 27, 0.95);
                 backdrop-filter: blur(10px);
                 border-right: 2px solid rgba(218, 165, 32, 0.3);
                 position: fixed;
-                height: 100vh;
+                height: calc(100vh - 70px);
                 left: 0;
-                top: 0;
+                top: 70px;
                 z-index: 1000;
                 transition: transform 0.3s ease;
+                overflow-y: auto;
             }
 
             .sidebar-header {
@@ -187,7 +180,6 @@
                 color: #1d1d1b;
             }
 
-            /* Main Content */
             .main-content {
                 flex: 1;
                 margin-left: 280px;
@@ -256,7 +248,6 @@
                 background: rgba(218, 165, 32, 0.2);
             }
 
-            /* Search and Filter Section */
             .search-section {
                 background: rgba(29, 29, 27, 0.9);
                 backdrop-filter: blur(10px);
@@ -306,7 +297,6 @@
                 color: #999;
             }
 
-            /* Voucher Table */
             .table-container {
                 background: rgba(29, 29, 27, 0.9);
                 backdrop-filter: blur(10px);
@@ -345,7 +335,6 @@
                 padding: 15px 12px;
                 text-align: left;
                 border-bottom: 1px solid rgba(218, 165, 32, 0.1);
-                vertical-align: middle;
             }
 
             .voucher-table th {
@@ -377,32 +366,17 @@
             }
 
             .voucher-code {
-                font-family: 'Courier New', monospace;
-                color: #4CAF50;
                 font-weight: 600;
-                background: rgba(76, 175, 80, 0.1);
+                color: #fff;
+                background: rgba(218, 165, 32, 0.1);
                 padding: 4px 8px;
                 border-radius: 4px;
-                border: 1px solid rgba(76, 175, 80, 0.3);
+                border: 1px solid rgba(218, 165, 32, 0.3);
+                font-family: 'Courier New', monospace;
             }
 
-            .voucher-discount {
-                color: #FF9800;
-                font-weight: 600;
-            }
-
-            .voucher-expiry {
+            .voucher-expire {
                 color: #ccc;
-            }
-
-            .voucher-expiry.expired {
-                color: #f44336;
-                font-weight: 600;
-            }
-
-            .voucher-expiry.expiring-soon {
-                color: #FF9800;
-                font-weight: 600;
             }
 
             .action-buttons {
@@ -431,23 +405,22 @@
                 border: 1px solid rgba(244, 67, 54, 0.3);
             }
 
-            .btn-deactivate {
-                background: rgba(158, 158, 158, 0.2);
-                color: #9E9E9E;
-                border: 1px solid rgba(158, 158, 158, 0.3);
-            }
-
             .btn-activate {
                 background: rgba(76, 175, 80, 0.2);
                 color: #4CAF50;
                 border: 1px solid rgba(76, 175, 80, 0.3);
             }
 
+            .btn-deactivate {
+                background: rgba(156, 39, 176, 0.2);
+                color: #9C27B0;
+                border: 1px solid rgba(156, 39, 176, 0.3);
+            }
+
             .btn-action:hover {
                 transform: translateY(-1px);
             }
 
-            /* Status badges */
             .badge {
                 padding: 4px 12px;
                 border-radius: 20px;
@@ -457,16 +430,16 @@
                 letter-spacing: 0.5px;
             }
 
-            .badge-unused {
+            .badge-active {
                 background: rgba(76, 175, 80, 0.2);
                 color: #4CAF50;
                 border: 1px solid rgba(76, 175, 80, 0.3);
             }
 
-            .badge-used {
-                background: rgba(158, 158, 158, 0.2);
-                color: #9E9E9E;
-                border: 1px solid rgba(158, 158, 158, 0.3);
+            .badge-inactive {
+                background: rgba(156, 39, 176, 0.2);
+                color: #9C27B0;
+                border: 1px solid rgba(156, 39, 176, 0.3);
             }
 
             .badge-expired {
@@ -475,19 +448,6 @@
                 border: 1px solid rgba(244, 67, 54, 0.3);
             }
 
-            .badge-active {
-                background: rgba(33, 150, 243, 0.2);
-                color: #2196F3;
-                border: 1px solid rgba(33, 150, 243, 0.3);
-            }
-
-            .badge-inactive {
-                background: rgba(158, 158, 158, 0.2);
-                color: #9E9E9E;
-                border: 1px solid rgba(158, 158, 158, 0.3);
-            }
-
-            /* Pagination */
             .pagination {
                 display: flex;
                 justify-content: center;
@@ -518,7 +478,6 @@
                 margin: 0 15px;
             }
 
-            /* Mobile Menu */
             .mobile-menu-btn {
                 display: none;
                 position: fixed;
@@ -533,57 +492,51 @@
                 font-size: 1.2rem;
             }
 
-            /* Statistics Cards */
-            .stats-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
-                margin-bottom: 30px;
-            }
-
-            .stat-card {
-                background: rgba(29, 29, 27, 0.9);
-                backdrop-filter: blur(10px);
+            .modal-content {
+                background: rgba(29, 29, 27, 0.95);
+                border: 1px solid rgba(218, 165, 32, 0.3);
                 border-radius: 15px;
-                padding: 25px;
-                border: 1px solid rgba(218, 165, 32, 0.2);
-                text-align: center;
-                transition: transform 0.3s ease;
             }
 
-            .stat-card:hover {
-                transform: translateY(-5px);
+            .modal-header {
+                border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+                color: #DAA520;
             }
 
-            .stat-icon {
-                font-size: 2.5rem;
-                margin-bottom: 15px;
+            .modal-body {
+                color: #fff;
             }
 
-            .stat-number {
-                font-size: 2rem;
-                font-weight: bold;
-                margin-bottom: 5px;
+            .form-group {
+                margin-bottom: 20px;
             }
 
-            .stat-label {
-                color: #ccc;
-                font-size: 0.9rem;
+            .form-group label {
+                color: #DAA520;
+                font-weight: 600;
+                margin-bottom: 8px;
+                display: block;
             }
 
-            .stat-card.total .stat-icon { color: #2196F3; }
-            .stat-card.total .stat-number { color: #2196F3; }
+            .form-control {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(218, 165, 32, 0.3);
+                border-radius: 8px;
+                color: #fff;
+                padding: 12px 15px;
+            }
 
-            .stat-card.active .stat-icon { color: #4CAF50; }
-            .stat-card.active .stat-number { color: #4CAF50; }
+            .form-control:focus {
+                background: rgba(255, 255, 255, 0.1);
+                border-color: #DAA520;
+                box-shadow: 0 0 0 2px rgba(218, 165, 32, 0.2);
+                color: #fff;
+            }
 
-            .stat-card.used .stat-icon { color: #9E9E9E; }
-            .stat-card.used .stat-number { color: #9E9E9E; }
+            .form-control::placeholder {
+                color: #999;
+            }
 
-            .stat-card.expired .stat-icon { color: #f44336; }
-            .stat-card.expired .stat-number { color: #f44336; }
-
-            /* Responsive */
             @media (max-width: 768px) {
                 .mobile-menu-btn {
                     display: block;
@@ -629,21 +582,15 @@
                 .voucher-table td {
                     padding: 10px 8px;
                 }
-
-                .stats-grid {
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                }
             }
         </style>
     </head>
     <body>
         <%@ page contentType="text/html; charset=UTF-8" %>
-        
-           <!-- Top Navigation Bar -->
         <nav class="navbar navbar-expand-lg custom-navbar border-bottom shadow-sm">
             <div class="container-fluid px-4">
                 <a class="navbar-brand d-flex align-items-center" href="index.jsp">
-                    <img src="image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">
+                    <img src="${pageContext.request.contextPath}/image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -662,13 +609,12 @@
                 </div>
             </div>
         </nav>
-        
+
         <button class="mobile-menu-btn" onclick="toggleSidebar()">
             <i class="fas fa-bars"></i>
         </button>
 
         <div class="dashboard-layout">
-            <!-- Sidebar -->
             <nav class="sidebar" id="sidebar">
                 <div class="sidebar-header">
                     <div class="logo">
@@ -677,8 +623,7 @@
                     <div class="logo-text">BarberShop Pro</div>
                     <div class="logo-subtitle">Admin Dashboard</div>
                 </div>
-
-                               <div class="nav-menu">
+                 <div class="nav-menu">
                     <div class="nav-item">
                         <a href="${pageContext.request.contextPath}/views/admin/dashboard.jsp" class="nav-link">
                             <i class="fas fa-tachometer-alt"></i>
@@ -710,9 +655,9 @@
                         </a>
                     </div>
                     <div class="nav-item">
-                        <a href="${pageContext.request.contextPath}/views/admin/storeManagement.jsp" class="nav-link">
+                        <a href="${pageContext.request.contextPath}/views/admin/serviceManagement.jsp" class="nav-link">
                             <i class="fas fa-store"></i>
-                            <span>Quản lý Cửa hàng</span>
+                            <span>Quản lý Dịch Vụ</span>
                         </a>
                     </div>
                     <div class="nav-item">
@@ -734,75 +679,22 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="admin-profile">
-                    <div class="admin-avatar">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="color: #DAA520; font-weight: 600; margin-bottom: 3px;">
-                            Admin
-                        </div>
-                        <div style="color: #999; font-size: 0.8rem;">
-                            Quản trị viên
-                        </div>
-                    </div>
-                </div>
             </nav>
 
-            <!-- Main Content -->
             <main class="main-content">
-                <!-- Header -->
                 <div class="header">
                     <div>
                         <h1><i class="fas fa-ticket-alt"></i> Quản lý Voucher</h1>
-                        <p>Quản lý mã giảm giá và khuyến mãi của hệ thống</p>
+                        <p>Quản lý mã giảm giá và ưu đãi cho khách hàng</p>
                     </div>
                     <div class="header-actions">
-                        <a href="#" class="btn btn-primary" onclick="showAddVoucherModal()">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVoucherModal">
                             <i class="fas fa-plus"></i>
                             Thêm voucher
-                        </a>
-                        <a href="#" class="btn btn-secondary">
-                            <i class="fas fa-download"></i>
-                            Xuất báo cáo
-                        </a>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Statistics Cards -->
-                <div class="stats-grid">
-                    <div class="stat-card total">
-                        <div class="stat-icon">
-                            <i class="fas fa-ticket-alt"></i>
-                        </div>
-                        <div class="stat-number" id="totalVouchers">12</div>
-                        <div class="stat-label">Tổng voucher</div>
-                    </div>
-                    <div class="stat-card active">
-                        <div class="stat-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="stat-number" id="activeVouchers">8</div>
-                        <div class="stat-label">Còn hiệu lực</div>
-                    </div>
-                    <div class="stat-card used">
-                        <div class="stat-icon">
-                            <i class="fas fa-user-check"></i>
-                        </div>
-                        <div class="stat-number" id="usedVouchers">3</div>
-                        <div class="stat-label">Đã sử dụng</div>
-                    </div>
-                    <div class="stat-card expired">
-                        <div class="stat-icon">
-                            <i class="fas fa-times-circle"></i>
-                        </div>
-                        <div class="stat-number" id="expiredVouchers">1</div>
-                        <div class="stat-label">Đã hết hạn</div>
-                    </div>
-                </div>
-
-                <!-- Search and Filter Section -->
                 <div class="search-section">
                     <div class="search-row">
                         <div class="search-group">
@@ -813,22 +705,355 @@
                         <div class="search-group">
                             <label for="filterStatus">Lọc theo trạng thái</label>
                             <select id="filterStatus" class="search-select" onchange="filterVouchers()">
-                                <option value="">Tất cả trạng thái</option>
-                                <option value="unused">Chưa sử dụng</option>
-                                <option value="used">Đã sử dụng</option>
-                                <option value="expired">Hết hạn</option>
-                            </select>
-                        </div>
-                        <div class="search-group">
-                            <label for="filterExpiry">Lọc theo hạn sử dụng</label>
-                            <select id="filterExpiry" class="search-select" onchange="filterVouchers()">
                                 <option value="">Tất cả</option>
-                                <option value="valid">Còn hiệu lực</option>
-                                <option value="expiring">Sắp hết hạn</option>
-                                <option value="expired">Đã hết hạn</option>
+                                <option value="active">Đang hoạt động</option>
+                                <option value="inactive">Ngưng hoạt động</option>
+                                <option value="expired">Hết hạn</option>
                             </select>
                         </div>
                         <div class="search-group">
                             <label for="sortBy">Sắp xếp theo</label>
                             <select id="sortBy" class="search-select" onchange="sortVouchers()">
-                                <option value="id">ID</option>
+                                <option value="id">STT</option>
+                                <option value="code">Mã voucher</option>
+                                <option value="expire">Ngày hết hạn</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3 class="table-title">Danh sách voucher</h3>
+                        <div class="table-info">
+                            Tổng cộng: <strong id="totalVouchers">5</strong> voucher
+                        </div>
+                    </div>
+
+                    <table class="voucher-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã voucher</th>
+                                <th>Ngày hết hạn</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="voucherTableBody">
+                            <tr>
+                                <td class="voucher-id">001</td>
+                                <td class="voucher-code">SUMMER2024</td>
+                                <td class="voucher-expire">31/08/2025</td>
+                                <td><span class="badge badge-active">Hoạt động</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-action btn-edit" onclick="editVoucher(1)" title="Chỉnh sửa">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-deactivate" onclick="toggleVoucher(1, this)" title="Ngưng hoạt động">
+                                            <i class="fas fa-pause"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" onclick="deleteVoucher(1)" title="Xóa">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="voucher-id">002</td>
+                                <td class="voucher-code">WELCOME50</td>
+                                <td class="voucher-expire">15/12/2025</td>
+                                <td><span class="badge badge-active">Hoạt động</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-action btn-edit" onclick="editVoucher(2)" title="Chỉnh sửa">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-deactivate" onclick="toggleVoucher(2, this)" title="Ngưng hoạt động">
+                                            <i class="fas fa-pause"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" onclick="deleteVoucher(2)" title="Xóa">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="voucher-id">003</td>
+                                <td class="voucher-code">FALL2024</td>
+                                <td class="voucher-expire">30/11/2024</td>
+                                <td><span class="badge badge-expired">Hết hạn</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-action btn-edit" onclick="editVoucher(3)" title="Chỉnh sửa">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" onclick="deleteVoucher(3)" title="Xóa">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="voucher-id">004</td>
+                                <td class="voucher-code">NEWUSER25</td>
+                                <td class="voucher-expire">31/03/2025</td>
+                                <td><span class="badge badge-inactive">Ngưng hoạt động</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-action btn-edit" onclick="editVoucher(4)" title="Chỉnh sửa">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-activate" onclick="toggleVoucher(4, this)" title="Kích hoạt">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" onclick="deleteVoucher(4)" title="Xóa">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="voucher-id">005</td>
+                                <td class="voucher-code">VIP2024</td>
+                                <td class="voucher-expire">31/12/2025</td>
+                                <td><span class="badge badge-active">Hoạt động</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-action btn-edit" onclick="editVoucher(5)" title="Chỉnh sửa">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-deactivate" onclick="toggleVoucher(5, this)" title="Ngưng hoạt động">
+                                            <i class="fas fa-pause"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" onclick="deleteVoucher(5)" title="Xóa">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination">
+                        <a href="#" class="pagination-btn">«</a>
+                        <a href="#" class="pagination-btn active">1</a>
+                        <a href="#" class="pagination-btn">2</a>
+                        <a href="#" class="pagination-btn">3</a>
+                        <span class="pagination-info">Hiển thị 1-5 của 5 voucher</span>
+                        <a href="#" class="pagination-btn">4</a>
+                        <a href="#" class="pagination-btn">5</a>
+                        <a href="#" class="pagination-btn">»</a>
+                    </div>
+                </div>
+
+                <!-- Add Voucher Modal -->
+                <div class="modal fade" id="addVoucherModal" tabindex="-1" aria-labelledby="addVoucherModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addVoucherModalLabel">Thêm Voucher Mới</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addVoucherForm">
+                                    <div class="form-group">
+                                        <label for="voucherCode">Mã Voucher</label>
+                                        <input type="text" class="form-control" id="voucherCode" placeholder="Nhập mã voucher">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="voucherExpire">Ngày Hết Hạn</label>
+                                        <input type="date" class="form-control" id="voucherExpire">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Thêm Voucher</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <script>
+            // Sample voucher data for demonstration
+            let vouchers = [
+                {id: 1, code: 'SUMMER2024', expire: '2025-08-31', status: 'active'},
+                {id: 2, code: 'WELCOME50', expire: '2025-12-15', status: 'active'},
+                {id: 3, code: 'FALL2024', expire: '2024-11-30', status: 'expired'},
+                {id: 4, code: 'NEWUSER25', expire: '2025-03-31', status: 'inactive'},
+                {id: 5, code: 'VIP2024', expire: '2025-12-31', status: 'active'}
+            ];
+
+            // Toggle sidebar for mobile
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('active');
+            }
+
+            // Toggle voucher status (active/inactive)
+            function toggleVoucher(voucherId, buttonElement) {
+                const row = buttonElement.closest('tr');
+                const statusBadge = row.querySelector('.badge');
+                const voucher = vouchers.find(v => v.id === voucherId);
+
+                if (voucher) {
+                    const today = new Date();
+                    const expireDate = new Date(voucher.expire);
+
+                    if (expireDate < today) {
+                        alert('Không thể thay đổi trạng thái voucher đã hết hạn.');
+                        return;
+                    }
+
+                    voucher.status = voucher.status === 'active' ? 'inactive' : 'active';
+
+                    if (voucher.status === 'active') {
+                        statusBadge.className = 'badge badge-active';
+                        statusBadge.textContent = 'Hoạt động';
+                        buttonElement.className = 'btn-action btn-deactivate';
+                        buttonElement.title = 'Ngưng hoạt động';
+                        buttonElement.innerHTML = '<i class="fas fa-pause"></i>';
+                    } else {
+                        statusBadge.className = 'badge badge-inactive';
+                        statusBadge.textContent = 'Ngưng hoạt động';
+                        buttonElement.className = 'btn-action btn-activate';
+                        buttonElement.title = 'Kích hoạt';
+                        buttonElement.innerHTML = '<i class="fas fa-play"></i>';
+                    }
+
+                    // Here you would typically send an AJAX request to update the database
+                }
+            }
+
+            // Edit voucher function
+            function editVoucher(voucherId) {
+                console.log('Edit voucher:', voucherId);
+                alert(`Chỉnh sửa voucher #${voucherId}`);
+                // Implement edit functionality, possibly with a modal
+            }
+
+            // Delete voucher function
+            function deleteVoucher(voucherId) {
+                if (confirm(`Bạn có chắc chắn muốn xóa voucher #${voucherId}?`)) {
+                    vouchers = vouchers.filter(v => v.id !== voucherId);
+                    renderVouchers();
+                    updateTotalVouchers();
+                }
+            }
+
+            // Filter vouchers function
+            function filterVouchers() {
+                const codeFilter = document.getElementById('searchCode').value.toLowerCase();
+                const statusFilter = document.getElementById('filterStatus').value;
+                const rows = document.querySelectorAll('#voucherTableBody tr');
+                let visibleCount = 0;
+
+                rows.forEach(row => {
+                    const code = row.querySelector('.voucher-code').textContent.toLowerCase();
+                    const status = row.querySelector('.badge').classList.contains('badge-active') ? 'active' :
+                                  row.querySelector('.badge').classList.contains('badge-inactive') ? 'inactive' : 'expired';
+
+                    const codeMatch = code.includes(codeFilter);
+                    const statusMatch = statusFilter === '' || status === statusFilter;
+
+                    if (codeMatch && statusMatch) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                document.getElementById('totalVouchers').textContent = visibleCount;
+            }
+
+            // Sort vouchers function
+            function sortVouchers() {
+                const sortBy = document.getElementById('sortBy').value;
+                const tbody = document.getElementById('voucherTableBody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                rows.sort((a, b) => {
+                    let aValue, bValue;
+
+                    switch (sortBy) {
+                        case 'id':
+                            aValue = parseInt(a.querySelector('.voucher-id').textContent);
+                            bValue = parseInt(b.querySelector('.voucher-id').textContent);
+                            break;
+                        case 'code':
+                            aValue = a.querySelector('.voucher-code').textContent.toLowerCase();
+                            bValue = b.querySelector('.voucher-code').textContent.toLowerCase();
+                            break;
+                        case 'expire':
+                            aValue = new Date(a.querySelector('.voucher-expire').textContent.split('/').reverse().join('-'));
+                            bValue = new Date(b.querySelector('.voucher-expire').textContent.split('/').reverse().join('-'));
+                            break;
+                        default:
+                            return 0;
+                    }
+
+                    if (typeof aValue === 'string') {
+                        return aValue.localeCompare(bValue);
+                    } else {
+                        return aValue - bValue;
+                    }
+                });
+
+                tbody.innerHTML = '';
+                rows.forEach(row => tbody.appendChild(row));
+            }
+
+            // Render vouchers function (lưu ý có thể lỗi phần n)
+            
+
+            // Update total vouchers count
+            function updateTotalVouchers() {
+                document.getElementById('totalVouchers').textContent = vouchers.length;
+                document.querySelector('.pagination-info').textContent = `Hiển thị 1-${vouchers.length} của ${vouchers.length} voucher`;
+            }
+
+            // Export vouchers function
+            function exportVouchers() {
+                console.log('Exporting vouchers to Excel...');
+                alert('Chức năng xuất Excel sẽ được triển khai sau!');
+            }
+
+            // Handle form submission for adding new voucher
+            document.getElementById('addVoucherForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const code = document.getElementById('voucherCode').value;
+                const expire = document.getElementById('voucherExpire').value;
+
+                if (code && expire) {
+                    const newId = vouchers.length > 0 ? Math.max(...vouchers.map(v => v.id)) + 1 : 1;
+                    vouchers.push({id: newId, code: code, expire: expire, status: 'active'});
+                    renderVouchers();
+                    updateTotalVouchers();
+                    document.getElementById('addVoucherForm').reset();
+                    bootstrap.Modal.getInstance(document.getElementById('addVoucherModal')).hide();
+                } else {
+                    alert('Vui lòng điền đầy đủ thông tin.');
+                }
+            });
+
+            // Initialize page
+            document.addEventListener('DOMContentLoaded', function () {
+                updateTotalVouchers();
+
+                document.addEventListener('click', function (event) {
+                    const sidebar = document.getElementById('sidebar');
+                    const mobileBtn = document.querySelector('.mobile-menu-btn');
+
+                    if (window.innerWidth <= 768 &&
+                            !sidebar.contains(event.target) &&
+                            !mobileBtn.contains(event.target) &&
+                            sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

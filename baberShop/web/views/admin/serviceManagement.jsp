@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<% response.setContentType("text/html; charset=UTF-8");%>
+<% response.setContentType("text/html; charset=UTF-8"); %>
 <!DOCTYPE html>
 <html lang="vi">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Quản lý Phản hồi - Barbershop Admin</title>
+        <title>Quản lý Dịch vụ - Barbershop Admin</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -225,96 +225,32 @@
                 background: rgba(218, 165, 32, 0.2);
             }
 
-            .stats-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
-                margin-bottom: 30px;
+            .btn-danger {
+                background: rgba(244, 67, 54, 0.2);
+                color: #F44336;
+                border: 1px solid rgba(244, 67, 54, 0.3);
+                padding: 6px 12px;
+                border-radius: 6px;
+                font-size: 0.8rem;
             }
 
-            .stats-card {
-                background: rgba(29, 29, 27, 0.9);
-                backdrop-filter: blur(10px);
-                border-radius: 15px;
-                padding: 25px;
-                border: 1px solid rgba(218, 165, 32, 0.2);
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                transition: transform 0.3s ease;
+            .btn-danger:hover {
+                background: rgba(244, 67, 54, 0.3);
+                transform: translateY(-1px);
             }
 
-            .stats-card:hover {
-                transform: translateY(-5px);
+            .btn-warning {
+                background: rgba(255, 167, 38, 0.2);
+                color: #FF6F00;
+                border: 1px solid rgba(255, 167, 38, 0.3);
+                padding: 6px 12px;
+                border-radius: 6px;
+                font-size: 0.8rem;
             }
 
-            .stats-icon {
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-            }
-
-            .stats-info h3 {
-                font-size: 2rem;
-                font-weight: 700;
-                color: #fff;
-                margin-bottom: 5px;
-            }
-
-            .stats-info p {
-                color: #ccc;
-                font-size: 0.9rem;
-            }
-
-            .search-section {
-                background: rgba(29, 29, 27, 0.9);
-                backdrop-filter: blur(10px);
-                border-radius: 15px;
-                padding: 25px;
-                margin-bottom: 25px;
-                border: 1px solid rgba(218, 165, 32, 0.2);
-            }
-
-            .search-row {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-                align-items: end;
-            }
-
-            .search-group {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .search-group label {
-                color: #DAA520;
-                margin-bottom: 8px;
-                font-weight: 600;
-                font-size: 0.9rem;
-            }
-
-            .search-input, .search-select {
-                padding: 12px 15px;
-                background: rgba(255, 255, 255, 0.05);
-                border: 1px solid rgba(218, 165, 32, 0.3);
-                border-radius: 8px;
-                color: #fff;
-                font-size: 0.9rem;
-            }
-
-            .search-input:focus, .search-select:focus {
-                outline: none;
-                border-color: #DAA520;
-                box-shadow: 0 0 0 2px rgba(218, 165, 32, 0.2);
-            }
-
-            .search-input::placeholder {
-                color: #999;
+            .btn-warning:hover {
+                background: rgba(255, 167, 38, 0.3);
+                transform: translateY(-1px);
             }
 
             .table-container {
@@ -348,21 +284,21 @@
                 font-size: 0.9rem;
             }
 
-            .feedback-table {
+            .service-table {
                 width: 100%;
                 border-collapse: collapse;
                 margin-top: 15px;
-                min-width: 800px;
+                min-width: 600px;
             }
 
-            .feedback-table th,
-            .feedback-table td {
+            .service-table th,
+            .service-table td {
                 padding: 15px 12px;
                 text-align: left;
                 border-bottom: 1px solid rgba(218, 165, 32, 0.1);
             }
 
-            .feedback-table th {
+            .service-table th {
                 background: rgba(218, 165, 32, 0.1);
                 color: #DAA520;
                 font-weight: 600;
@@ -371,67 +307,22 @@
                 letter-spacing: 0.5px;
             }
 
-            .feedback-table td {
+            .service-table td {
                 color: #fff;
                 font-size: 0.9rem;
             }
 
-            .feedback-table tbody tr {
+            .service-table tbody tr {
                 transition: all 0.3s ease;
             }
 
-            .feedback-table tbody tr:hover {
+            .service-table tbody tr:hover {
                 background: rgba(218, 165, 32, 0.05);
             }
 
-            .appointment-id {
-                font-family: 'Courier New', monospace;
+            .money {
                 color: #DAA520;
                 font-weight: 600;
-            }
-
-            .customer-info {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .customer-avatar {
-                width: 35px;
-                height: 35px;
-                border-radius: 50%;
-                background: linear-gradient(45deg, #DAA520, #B8860B);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #1d1d1b;
-                font-weight: 600;
-                font-size: 0.8rem;
-            }
-
-            .star-rating {
-                color: #FFC107;
-                font-size: 1rem;
-            }
-
-            .feedback-text {
-                max-width: 300px;
-                word-wrap: break-word;
-                white-space: pre-wrap;
-            }
-
-            .mobile-menu-btn {
-                display: none;
-                position: fixed;
-                top: 20px;
-                left: 20px;
-                z-index: 1001;
-                background: rgba(29, 29, 27, 0.9);
-                color: #DAA520;
-                border: none;
-                padding: 10px;
-                border-radius: 5px;
-                font-size: 1.2rem;
             }
 
             .modal-content {
@@ -479,6 +370,20 @@
                 color: #999;
             }
 
+            .mobile-menu-btn {
+                display: none;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1001;
+                background: rgba(29, 29, 27, 0.9);
+                color: #DAA520;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 1.2rem;
+            }
+
             @media (max-width: 768px) {
                 .mobile-menu-btn {
                     display: block;
@@ -508,24 +413,16 @@
                     justify-content: flex-start;
                 }
 
-                .stats-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .search-row {
-                    grid-template-columns: 1fr;
-                }
-
                 .table-container {
                     padding: 15px;
                 }
 
-                .feedback-table {
+                .service-table {
                     font-size: 0.8rem;
                 }
 
-                .feedback-table th,
-                .feedback-table td {
+                .service-table th,
+                .service-table td {
                     padding: 10px 8px;
                 }
             }
@@ -568,8 +465,7 @@
                     <div class="logo-text">BarberShop Pro</div>
                     <div class="logo-subtitle">Admin Dashboard</div>
                 </div>
-
-                <div class="nav-menu">
+                 <div class="nav-menu">
                     <div class="nav-item">
                         <a href="${pageContext.request.contextPath}/views/admin/dashboard.jsp" class="nav-link">
                             <i class="fas fa-tachometer-alt"></i>
@@ -630,148 +526,111 @@
             <main class="main-content">
                 <div class="header">
                     <div>
-                        <h1><i class="fas fa-comments"></i> Quản lý Phản hồi</h1>
-                        <p>Xem và quản lý phản hồi từ khách hàng</p>
+                        <h1><i class="fas fa-store"></i> Quản lý Dịch vụ</h1>
+                        <p>Quản lý các dịch vụ của salon</p>
                     </div>
                     <div class="header-actions">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addFeedbackModal">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">
                             <i class="fas fa-plus"></i>
-                            Thêm phản hồi
+                            Thêm Dịch vụ
                         </button>
-                    </div>
-                </div>
-
-                <div class="search-section">
-                    <div class="search-row">
-                        <div class="search-group">
-                            <label>Tìm kiếm phản hồi</label>
-                            <input type="text" id="searchFeedback" class="search-input" placeholder="Nhập tên khách hàng hoặc mã lịch hẹn">
-                        </div>
-                        <div class="search-group">
-                            <label>Đánh giá sao</label>
-                            <select id="searchRating" class="search-select">
-                                <option value="">Tất cả</option>
-                                <option value="1">1 Sao</option>
-                                <option value="2">2 Sao</option>
-                                <option value="3">3 Sao</option>
-                                <option value="4">4 Sao</option>
-                                <option value="5">5 Sao</option>
-                            </select>
-                        </div>
-                        <div class="search-group">
-                            <button class="btn btn-primary" onclick="searchFeedbacks()">
-                                <i class="fas fa-search"></i>
-                                Tìm kiếm
-                            </button>
-                        </div>
                     </div>
                 </div>
 
                 <div class="table-container">
                     <div class="table-header">
                         <div>
-                            <div class="table-title">Danh sách Phản hồi</div>
-                            <div class="table-info" id="tableInfo">Hiển thị 0 phản hồi</div>
-                        </div>
-                        <div class="header-actions">
-                            <button class="btn btn-secondary" onclick="resetFilters()">
-                                <i class="fas fa-sync-alt"></i>
-                                Đặt lại
-                            </button>
+                            <div class="table-title">Danh sách Dịch vụ</div>
+                            <div class="table-info" id="tableInfo">Hiển thị 0 dịch vụ</div>
                         </div>
                     </div>
-                    <table class="feedback-table">
+                    <table class="service-table">
                         <thead>
                             <tr>
-                                <th>Mã lịch hẹn</th>
-                                <th>Tên nhân viên</th>
-                                <th>Tên khách hàng</th>
-                                <th>Đánh giá sao</th>
-                                <th>Phản hồi</th>
+                                <th>Tên Dịch vụ</th>
+                                <th>Giá</th>
+                                <th>Hành động</th>
                             </tr>
                         </thead>
-                        <tbody id="feedbackTableBody"></tbody>
+                        <tbody id="serviceTableBody"></tbody>
                     </table>
                 </div>
             </main>
         </div>
 
-        <!-- Add Feedback Modal -->
-        <div class="modal fade" id="addFeedbackModal" tabindex="-1" aria-labelledby="addFeedbackModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+        <!-- Add Service Modal -->
+        <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addFeedbackModalLabel">Thêm phản hồi mới</h5>
+                        <h5 class="modal-title" id="addServiceModalLabel">Thêm Dịch vụ Mới</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Tên nhân viên</label>
-                            <input type="text" id="staffName" class="form-control" placeholder="Nhập tên nhân viên">
+                            <label>Tên Dịch vụ</label>
+                            <input type="text" id="serviceNameAdd" class="form-control" placeholder="Nhập tên dịch vụ">
                         </div>
                         <div class="form-group">
-                            <label>Tên khách hàng</label>
-                            <input type="text" id="customerName" class="form-control" placeholder="Nhập tên khách hàng">
-                        </div>
-                        <div class="form-group">
-                            <label>Mã lịch hẹn</label>
-                            <input type="text" id="appointmentId" class="form-control" placeholder="Nhập mã lịch hẹn">
-                        </div>
-                        <div class="form-group">
-                            <label>Đánh giá sao</label>
-                            <select id="rating" class="form-control">
-                                <option value="1">1 Sao</option>
-                                <option value="2">2 Sao</option>
-                                <option value="3">3 Sao</option>
-                                <option value="4">4 Sao</option>
-                                <option value="5">5 Sao</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Phản hồi</label>
-                            <textarea id="feedbackText" class="form-control" rows="4" placeholder="Nhập phản hồi"></textarea>
+                            <label>Giá (VNĐ)</label>
+                            <input type="number" id="servicePriceAdd" class="form-control" placeholder="Nhập giá dịch vụ" min="0">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                        <button type="button" class="btn btn-primary" onclick="addFeedback()">Thêm phản hồi</button>
+                        <button type="button" class="btn btn-primary" onclick="addService()">Thêm Dịch vụ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Service Modal -->
+        <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editServiceModalLabel">Sửa Dịch vụ</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="editServiceId">
+                        <div class="form-group">
+                            <label>Tên Dịch vụ</label>
+                            <input type="text" id="serviceNameEdit" class="form-control" placeholder="Nhập tên dịch vụ">
+                        </div>
+                        <div class="form-group">
+                            <label>Giá (VNĐ)</label>
+                            <input type="number" id="servicePriceEdit" class="form-control" placeholder="Nhập giá dịch vụ" min="0">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary" onclick="saveEdit()">Lưu Thay đổi</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <script>
-            // Sample feedback data
-            let feedbacks = [
-                {
-                    appointmentId: "APPT001",
-                    staffName: "Nguyễn Văn A",
-                    customerName: "Trần Minh Cường",
-                    rating: 4,
-                    feedback: "Dịch vụ rất tốt, nhân viên thân thiện. "
-                },
-                {
-                    appointmentId: "APPT002",
-                    staffName: "Trần Thị C",
-                    customerName: "Lê Văn D",
-                    rating: 5,
-                    feedback: "Tuyệt vời, sẽ quay lại lần sau!"
-                },
-                {
-                    appointmentId: "APPT003",
-                    staffName: "Lê Văn E",
-                    customerName: "Phạm Thị F",
-                    rating: 3,
-                    feedback: "Dịch vụ ổn, nhưng chờ hơi lâu."
-                }
+            // Sample service data with reasonable prices
+            let services = [
+                { id: "SRV001", name: "Cắt tóc thương gia", price: 200000 },
+                { id: "SRV002", name: "Combo1", price: 300000 },
+                { id: "SRV003", name: "Combo2", price: 350000 },
+                { id: "SRV004", name: "Combo3", price: 400000 },
+                { id: "SRV005", name: "Combo4", price: 450000 },
+                { id: "SRV006", name: "Uốn cơ bản", price: 500000 },
+                { id: "SRV007", name: "Uốn cao cấp", price: 800000 },
+                { id: "SRV008", name: "Nhuộm cơ bản", price: 600000 },
+                { id: "SRV009", name: "Nhuộm cao cấp", price: 1000000 },
+                { id: "SRV010", name: "Lấy ráy tai", price: 100000 },
+                { id: "SRV011", name: "Gội đầu thư giãn cơ bản", price: 150000 },
+                { id: "SRV012", name: "Gội đầu thư giãn cao cấp", price: 250000 }
             ];
 
-            // Filtered feedbacks
-            let filteredFeedbacks = [...feedbacks];
-
             // Initialize page
-            document.addEventListener('DOMContentLoaded', function () {
-                renderFeedbacks();
+            document.addEventListener('DOMContentLoaded', function() {
+                renderServices();
             });
 
             // Toggle sidebar for mobile
@@ -782,121 +641,81 @@
                 }
             }
 
-            // Render feedbacks
-            function renderFeedbacks() {
-                const tableBody = document.getElementById('feedbackTableBody');
-                if (!tableBody)
-                    return;
+            // Render services
+            function renderServices() {
+                const tableBody = document.getElementById('serviceTableBody');
+                if (!tableBody) return;
 
                 tableBody.innerHTML = '';
 
-                filteredFeedbacks.forEach(feedback => {
+                services.forEach(service => {
                     const row = document.createElement('tr');
 
-                    // Appointment ID
-                    const idCell = document.createElement('td');
-                    idCell.className = 'appointment-id';
-                    idCell.textContent = feedback.appointmentId || 'N/A';
-                    row.appendChild(idCell);
+                    // Service Name
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = service.name || 'N/A';
+                    row.appendChild(nameCell);
 
-                    // Staff Name
-                    const staffCell = document.createElement('td');
-                    staffCell.textContent = feedback.staffName || 'N/A';
-                    row.appendChild(staffCell);
+                    // Price
+                    const priceCell = document.createElement('td');
+                    priceCell.className = 'money';
+                    priceCell.textContent = (service.price || 0).toLocaleString('vi-VN') + ' VNĐ';
+                    row.appendChild(priceCell);
 
-                    // Customer Name
-                    const customerCell = document.createElement('td');
-                    customerCell.className = 'customer-info';
-                    const avatarDiv = document.createElement('div');
-                    avatarDiv.className = 'customer-avatar';
-                    avatarDiv.textContent = feedback.customerName?.charAt(0) || '?';
-                    const nameDiv = document.createElement('div');
-                    nameDiv.textContent = feedback.customerName || 'N/A';
-                    customerCell.appendChild(avatarDiv);
-                    customerCell.appendChild(nameDiv);
-                    row.appendChild(customerCell);
-
-                    // Star Rating
-                    const ratingCell = document.createElement('td');
-                    ratingCell.className = 'star-rating';
-                    for (let i = 0; i < 5; i++) {
-                        const star = document.createElement('i');
-                        star.className = 'fas fa-star';
-                        star.style.color = i < feedback.rating ? '#FFC107' : '#ccc';
-                        ratingCell.appendChild(star);
-                    }
-                    row.appendChild(ratingCell);
-
-                    // Feedback
-                    const feedbackCell = document.createElement('td');
-                    feedbackCell.className = 'feedback-text';
-                    feedbackCell.textContent = feedback.feedback || 'Chưa có phản hồi';
-                    row.appendChild(feedbackCell);
+                    // Actions
+                    const actionsCell = document.createElement('td');
+                    const editBtn = document.createElement('button');
+                    editBtn.className = 'btn btn-warning me-2';
+                    editBtn.innerHTML = '<i class="fas fa-edit"></i> Sửa';
+                    editBtn.onclick = function() { showEditModal(service); };
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.className = 'btn btn-danger';
+                    deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i> Xóa';
+                    deleteBtn.onclick = function() { deleteService(service.id); };
+                    actionsCell.appendChild(editBtn);
+                    actionsCell.appendChild(deleteBtn);
+                    row.appendChild(actionsCell);
 
                     tableBody.appendChild(row);
                 });
 
                 const tableInfo = document.getElementById('tableInfo');
                 if (tableInfo) {
-                    tableInfo.textContent = 'Hiển thị ' + filteredFeedbacks.length + ' phản hồi';
+                    tableInfo.textContent = 'Hiển thị ' + services.length + ' dịch vụ';
                 }
             }
 
-            // Search feedbacks
-            function searchFeedbacks() {
-                const query = document.getElementById('searchFeedback').value.toLowerCase();
-                const rating = document.getElementById('searchRating').value;
+            // Add new service
+            function addService() {
+                const serviceName = document.getElementById('serviceNameAdd').value.trim();
+                const servicePrice = parseInt(document.getElementById('servicePriceAdd').value);
 
-                filteredFeedbacks = feedbacks.filter(function (feedback) {
-                    const matchesQuery = (feedback.customerName || '').toLowerCase().includes(query) ||
-                            (feedback.appointmentId || '').toLowerCase().includes(query);
-                    const matchesRating = !rating || feedback.rating === parseInt(rating);
-
-                    return matchesQuery && matchesRating;
-                });
-
-                renderFeedbacks();
-            }
-
-            // Reset filters
-            function resetFilters() {
-                document.getElementById('searchFeedback').value = '';
-                document.getElementById('searchRating').value = '';
-                filteredFeedbacks = [...feedbacks];
-                renderFeedbacks();
-            }
-
-            // Add feedback
-            function addFeedback() {
-                const staffName = document.getElementById('staffName').value;
-                const customerName = document.getElementById('customerName').value;
-                const appointmentId = document.getElementById('appointmentId').value;
-                const rating = parseInt(document.getElementById('rating').value);
-                const feedbackText = document.getElementById('feedbackText').value;
-
-                if (!staffName || !customerName || !appointmentId || !rating || !feedbackText) {
-                    alert('Vui lòng điền đầy đủ thông tin!');
+                if (!serviceName || isNaN(servicePrice) || servicePrice < 0) {
+                    alert('Vui lòng nhập đầy đủ và hợp lệ thông tin dịch vụ!');
                     return;
                 }
 
-                const newFeedback = {
-                    appointmentId: appointmentId,
-                    staffName: staffName,
-                    customerName: customerName,
-                    rating: rating,
-                    feedback: feedbackText
+                // Check for duplicate service names
+                if (services.some(service => service.name.toLowerCase() === serviceName.toLowerCase())) {
+                    alert('Dịch vụ này đã tồn tại! Vui lòng nhập tên dịch vụ khác.');
+                    return;
+                }
+
+                const newService = {
+                    id: 'SRV' + (services.length + 1).toString().padStart(3, '0'),
+                    name: serviceName,
+                    price: servicePrice
                 };
 
-                feedbacks.push(newFeedback);
-                filteredFeedbacks = [...feedbacks];
-                renderFeedbacks();
+                services.push(newService);
+                renderServices();
                 resetAddModal();
 
                 if (typeof bootstrap !== 'undefined') {
-                    const modal = bootstrap.Modal.getInstance(document.getElementById('addFeedbackModal'));
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addServiceModal'));
                     modal.hide();
                 } else {
-                    document.getElementById('addFeedbackModal').classList.remove('show');
+                    document.getElementById('addServiceModal').classList.remove('show');
                     document.body.classList.remove('modal-open');
                     document.querySelector('.modal-backdrop').remove();
                 }
@@ -904,11 +723,67 @@
 
             // Reset add modal
             function resetAddModal() {
-                document.getElementById('staffName').value = '';
-                document.getElementById('customerName').value = '';
-                document.getElementById('appointmentId').value = '';
-                document.getElementById('rating').value = '1';
-                document.getElementById('feedbackText').value = '';
+                document.getElementById('serviceNameAdd').value = '';
+                document.getElementById('servicePriceAdd').value = '';
+            }
+
+            // Delete service
+            function deleteService(id) {
+                if (confirm('Bạn có chắc chắn muốn xóa dịch vụ này?')) {
+                    services = services.filter(service => service.id !== id);
+                    renderServices();
+                }
+            }
+
+            // Show edit modal
+            function showEditModal(service) {
+                document.getElementById('editServiceId').value = service.id;
+                document.getElementById('serviceNameEdit').value = service.name;
+                document.getElementById('servicePriceEdit').value = service.price;
+
+                if (typeof bootstrap !== 'undefined') {
+                    const modal = new bootstrap.Modal(document.getElementById('editServiceModal'));
+                    modal.show();
+                } else {
+                    document.getElementById('editServiceModal').classList.add('show');
+                    document.body.classList.add('modal-open');
+                    const backdrop = document.createElement('div');
+                    backdrop.classList.add('modal-backdrop', 'fade', 'show');
+                    document.body.appendChild(backdrop);
+                }
+            }
+
+            // Save edited service
+            function saveEdit() {
+                const serviceId = document.getElementById('editServiceId').value;
+                const serviceName = document.getElementById('serviceNameEdit').value.trim();
+                const servicePrice = parseInt(document.getElementById('servicePriceEdit').value);
+
+                if (!serviceName || isNaN(servicePrice) || servicePrice < 0) {
+                    alert('Vui lòng nhập đầy đủ và hợp lệ thông tin dịch vụ!');
+                    return;
+                }
+
+                // Check for duplicate service names (excluding the current service)
+                const existingService = services.find(service => service.id === serviceId);
+                if (services.some(service => service.name.toLowerCase() === serviceName.toLowerCase() && service.id !== serviceId)) {
+                    alert('Tên dịch vụ này đã tồn tại! Vui lòng nhập tên khác.');
+                    return;
+                }
+
+                // Update the service
+                existingService.name = serviceName;
+                existingService.price = servicePrice;
+                renderServices();
+
+                if (typeof bootstrap !== 'undefined') {
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('editServiceModal'));
+                    modal.hide();
+                } else {
+                    document.getElementById('editServiceModal').classList.remove('show');
+                    document.body.classList.remove('modal-open');
+                    document.querySelector('.modal-backdrop').remove();
+                }
             }
         </script>
     </body>
