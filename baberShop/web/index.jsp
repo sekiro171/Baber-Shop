@@ -28,16 +28,20 @@
                             <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Trang chủ</a>
                         </li>
                         <li class="nav-item">
+<<<<<<< HEAD
                             <a class="nav-link" href="aboutUs.jsp">Về chúng tôi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="franchies.jsp">Nhượng quyền</a>
+=======
+                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/aboutUs.jsp">Về chúng tôi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đối tác</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/franchise.jsp">Nhượng quyền</a>
+>>>>>>> 510ac38ec7744df91673c75d27851e117e6e9faa
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đặt lịch</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/views/booking/booking.jsp">Đặt lịch</a>
                         </li>
                     </ul>
                     <div class="d-flex gap-2">
@@ -47,6 +51,7 @@
                 </div>
             </div>
         </nav>
+         <div class="main-content-wrapper">
         <!-- Carousel -->
         <div class="container carousel-container">
             <div id="mainCarousel"
@@ -94,7 +99,7 @@
 
 
         <!-- Service -->
-        <div class="container py-5">
+        <div class="container py-5 service-sections">
             <!-- DỊCH VỤ TÓC -->
             <h4 class="section-title">| DỊCH VỤ TÓC</h4>
             <div class="row mb-4">
@@ -242,7 +247,7 @@
                 </div>
             </div>
         </section>
-
+         </div>
 
         <!-- Footer -->
         <footer class="footer">
@@ -257,10 +262,16 @@
                     <div class="col-lg-4 col-md-6 footer-col">
                         <h4 class="footer-title">Liên kết nhanh</h4>
                         <ul class="footer-links">
+<<<<<<< HEAD
                             <li><a href="#">Về chúng tôi</a></li>
                             <li><a href="franchies.jsp">Liên hệ nhượng quyền</a></li>
                             <li><a href="#">Đối tác</a></li>
                             <li><a href="#">Chính sách cam kết</a></li>
+=======
+                            <li><a href="${pageContext.request.contextPath}/views/common/aboutUs.jsp">Về chúng tôi</a></li>
+                            <li><a href="${pageContext.request.contextPath}/views/common/franchise.jsp">Liên hệ nhượng quyền</a></li>
+                            <li><a href="${pageContext.request.contextPath}/views/commit/details.jsp">Chính sách cam kết</a></li>
+>>>>>>> 510ac38ec7744df91673c75d27851e117e6e9faa
                         </ul>
                     </div>
 

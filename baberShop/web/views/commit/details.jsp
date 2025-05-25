@@ -28,16 +28,13 @@
                             <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Về chúng tôi</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/aboutUs.jsp">Về chúng tôi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nhượng quyền</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/franchise.jsp">Nhượng quyền</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đối tác</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đặt lịch</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/views/booking/booking.jsp">Đặt lịch</a>
                         </li>
                     </ul>
                     <div class="d-flex gap-2">
@@ -148,7 +145,7 @@
                         <div class="booking-cta py-5 text-center">
                             <h4 class="mb-4">Trải nghiệm ngay dịch vụ chất lượng tại Cut&Styles Barber</h4>
                             <p class="mb-4">Tại chi nhánh duy nhất: Khu đô thị FPT city, Hòa Hải, Ngũ Hành Sơn, Đà Nẵng</p>
-                            <a href="#" class="btn btn-primary btn-lg">Đặt lịch ngay</a>
+                            <a href="${pageContext.request.contextPath}/views/booking/booking.jsp" class="btn btn-primary btn-lg">Đặt lịch ngay</a>
                         </div>
                     </div>
                 </div>
@@ -169,10 +166,9 @@
                     <div class="col-lg-4 col-md-6 footer-col">
                         <h4 class="footer-title">Liên kết nhanh</h4>
                         <ul class="footer-links">
-                            <li><a href="#">Về chúng tôi</a></li>
-                            <li><a href="#">Liên hệ nhượng quyền</a></li>
-                            <li><a href="#">Đối tác</a></li>
-                            <li><a href="#">Chính sách cam kết</a></li>
+                            <li><a href="${pageContext.request.contextPath}/views/common/aboutUs.jsp">Về chúng tôi</a></li>
+                            <li><a href="${pageContext.request.contextPath}/views/common/franchise.jsp">Liên hệ nhượng quyền</a></li>
+                            <li><a href="${pageContext.request.contextPath}/views/commit/details.jsp">Chính sách cam kết</a></li>
                         </ul>
                     </div>
 
