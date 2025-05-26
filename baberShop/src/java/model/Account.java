@@ -1,20 +1,15 @@
 
 package model;
 
-/**
- *
- * @author Sekiro
- */
-public class Account {
-    private int id;
-    private String email;
-    private String phoneNumber;
-    private String password;
-    private String role;
-    private int status;
+public abstract class Account {
+    protected String email;
+    protected String phoneNumber;
+    protected String password;
+    protected String role;
+    protected String status;
 
     // Constructor
-    public Account(String email, String phoneNumber, String password, String role, int status) {
+    public Account(String email, String phoneNumber, String password, String role, String status) {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
@@ -23,14 +18,6 @@ public class Account {
     }
 
     // Getters and Setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -63,11 +50,12 @@ public class Account {
         this.role = role;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }
+
