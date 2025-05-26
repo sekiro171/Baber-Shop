@@ -8,35 +8,19 @@ package model;
  *
  * @author Sekiro
  */
-public class Admin {
+public class Admin extends Account {
+
     private int id;
     private String firstName;
     private String lastName;
-    private String email;
-    private String password;
-    private String phoneNumber;
 
-    public Admin() {
-    }
 
-    public Admin(String firstName, String lastName, String email, String phoneNumber) {
+    public Admin(String email, String phoneNumber, String password, String role, String status, String firstName, String lastName) {
+        super(email, phoneNumber, password, role, status);  // Call to superclass constructor
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
     }
 
-    public Admin(String firstName, String lastName, String email, String password, String phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-    }
-
-
-    
-    
     public int getId() {
         return id;
     }
@@ -84,4 +68,5 @@ public class Admin {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
 }

@@ -1,7 +1,7 @@
 
 package model;
 
-public class Staff {
+public class Staff extends Account{
     private int id;
     private int accountId;
     private String firstName;
@@ -9,7 +9,9 @@ public class Staff {
     private String img;
 
     // Constructor
-    public Staff(int accountId, String firstName, String lastName, String img) {
+
+    public Staff(int accountId, String firstName, String lastName, String img, String email, String phoneNumber, String password, String role, String status) {
+        super(email, phoneNumber, password, role, status);
         this.accountId = accountId;
         this.firstName = firstName;
         this.lastName = lastName;

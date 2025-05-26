@@ -4,18 +4,19 @@ package model;
  *
  * @author Sekiro
  */
-public class Customer {
+public class Customer extends Account{
     private int id;
     private int accountId;
     private String firstName;
     private String lastName;
 
     // Constructor
-    public Customer(int accountId, String firstName, String lastName) {
-        this.accountId = accountId;
+    public Customer(String email, String phoneNumber, String password, String role, String status, String firstName, String lastName) {
+        super(email, phoneNumber, password, role, status);  // Call to superclass constructor
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    
 
     // Getters and Setters
     public int getId() {
