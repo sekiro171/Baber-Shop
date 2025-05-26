@@ -1,4 +1,3 @@
-
 package model;
 
 /**
@@ -9,12 +8,27 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class WorkSchedule {
+
     private int id;
     private int staffId;
     private LocalDate workDate;
     private LocalTime startTime;
     private LocalTime endTime;
+    private String status;
 
+    public WorkSchedule() {
+    }
+
+    public WorkSchedule(int staffId, LocalDate workDate, LocalTime startTime, LocalTime endTime, String status) {
+        this.staffId = staffId;
+        this.workDate = workDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.status = status;
+    }
+
+    
+    
     // Getters and Setters
     public int getId() {
         return id;
@@ -55,5 +69,13 @@ public class WorkSchedule {
     public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
-}
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+}
