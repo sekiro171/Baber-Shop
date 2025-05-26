@@ -1,46 +1,36 @@
 
 package model;
 
-/**
- *
- * @author Sekiro
- */
 public class Staff {
     private int id;
+    private int accountId;
     private String firstName;
     private String lastName;
-    private String email;
-    private String password;
-    private String phoneNumber;
-    private int status;
-    
-    
-    public Staff() {
-    }
+    private String img;
 
-    public Staff(String firstName, String lastName, String email, String phoneNumber) {
+    // Constructor
+    public Staff(int accountId, String firstName, String lastName, String img) {
+        this.accountId = accountId;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.img = img;
     }
 
-    public Staff(int id, String firstName, String lastName, String email, String password, String phoneNumber, int status) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.status = status;
-    }
-
+    // Getters and Setters
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public String getFirstName() {
@@ -59,28 +49,11 @@ public class Staff {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getImg() {
+        return img;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setImg(String img) {
+        this.img = img;
     }
 }
-

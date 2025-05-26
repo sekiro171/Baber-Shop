@@ -1,33 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
-/**
- *
- * @author Sekiro
- */
 import java.time.LocalDateTime;
 
 public class Appointment {
     private int id;
-    private LocalDateTime appointmentTime;
     private int customerId;
     private int staffId;
+    private LocalDateTime appointmentTime;
+    private String status;
+    private int numberOfPeople;
 
-    public Appointment(LocalDateTime appointmentTime, int customerId, int staffId) {
-        this.appointmentTime = appointmentTime;
-        this.customerId = customerId;
-        this.staffId = staffId;
-    }
+    // Constructor
 
     public Appointment() {
     }
 
-    
-    
-    
+    public Appointment(int id, int customerId, int staffId, LocalDateTime appointmentTime, String status, int numberOfPeople) {
+        this.id = id;
+        this.customerId = customerId;
+        this.staffId = staffId;
+        this.appointmentTime = appointmentTime;
+        this.status = status;
+        this.numberOfPeople = numberOfPeople;
+    }
+   
+
     // Getters and Setters
     public int getId() {
         return id;
@@ -35,14 +33,6 @@ public class Appointment {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public LocalDateTime getAppointmentTime() {
-        return appointmentTime;
-    }
-
-    public void setAppointmentTime(LocalDateTime appointmentTime) {
-        this.appointmentTime = appointmentTime;
     }
 
     public int getCustomerId() {
@@ -60,4 +50,30 @@ public class Appointment {
     public void setStaffId(int staffId) {
         this.staffId = staffId;
     }
+
+    public LocalDateTime getAppointmentTime() {
+        return appointmentTime;
+    }
+
+    public void setAppointmentTime(LocalDateTime appointmentTime) {
+        this.appointmentTime = appointmentTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getNumberOfPeople() {
+        return numberOfPeople;
+    }
+
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
+    }
+    
+    
 }

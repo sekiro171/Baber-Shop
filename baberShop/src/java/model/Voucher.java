@@ -9,15 +9,15 @@ import java.time.LocalDate;
 public class Voucher {
     private int id;
     private String code;
-    private double value;
+    private float value;
     private LocalDate expiryDate;
     private String status;
-    private int adminId;
 
     public Voucher() {
     }
 
-    public Voucher(String code, double value, LocalDate expiryDate, String status) {
+    // Constructor
+    public Voucher(String code, float value, LocalDate expiryDate, String status) {
         this.code = code;
         this.value = value;
         this.expiryDate = expiryDate;
@@ -41,11 +41,11 @@ public class Voucher {
         this.code = code;
     }
 
-    public double getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(float value) {
         this.value = value;
     }
 
@@ -63,13 +63,5 @@ public class Voucher {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public int getAdminId() {
-        return adminId;
-    }
-
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
     }
 }

@@ -1,10 +1,4 @@
-﻿CREATE DATABASE baberShop;
-GO
-
-USE baberShop;
-GO
-
--- Tạo bảng Voucher
+﻿-- Chèn dữ liệu vào bảng Voucher
 CREATE TABLE Voucher (
     id INT PRIMARY KEY IDENTITY,
     code NVARCHAR(255) NOT NULL,
@@ -14,7 +8,7 @@ CREATE TABLE Voucher (
 );
 GO
 
--- Tạo bảng Customer_Voucher
+-- Chèn dữ liệu vào bảng Customer_Voucher
 CREATE TABLE Customer_Voucher (
     customerId INT NOT NULL,
     voucherId INT NOT NULL,
@@ -25,66 +19,49 @@ CREATE TABLE Customer_Voucher (
 );
 GO
 
--- Tạo bảng Service (thêm trường description)
+-- Chèn dữ liệu vào bảng Service
 CREATE TABLE Service (
     id INT PRIMARY KEY IDENTITY,
     name NVARCHAR(255) NOT NULL,
     price FLOAT NOT NULL,
-    duration INT NOT NULL,
-    description NVARCHAR(MAX) NOT NULL,  -- Thêm trường description
-	[image] [nvarchar](max) NULL
+    duration INT NOT NULL
 );
 GO
 
--- Tạo bảng Appointment
--- Tạo bảng Appointment
+-- Chèn dữ liệu vào bảng Appointment
 CREATE TABLE Appointment (
     id INT PRIMARY KEY IDENTITY,
-    customerId INT NOT NULL,  -- Người đặt lịch
-    staffId INT NOT NULL,     -- Nhân viên phục vụ
+    customerId INT NOT NULL,
+    staffId INT NOT NULL,
     appointmentTime DATETIME NOT NULL,
-    numberOfPeople INT NOT NULL DEFAULT 1,  -- Số lượng người tham gia dịch vụ
     status NVARCHAR(50) NOT NULL,
     FOREIGN KEY (customerId) REFERENCES Customer(id),
     FOREIGN KEY (staffId) REFERENCES Staff(id)
 );
 GO
 
--- Tạo bảng Invoice
+-- Chèn dữ liệu vào bảng Invoice
 CREATE TABLE Invoice (
     id INT PRIMARY KEY IDENTITY,
-    appointmentId INT NOT NULL,  -- Liên kết với bảng Appointment
-    totalAmount FLOAT NOT NULL,  -- Tổng số tiền cần thanh toán
-    voucherCode NVARCHAR(255) NULL,  -- Mã voucher (nếu có)
-    receivedDate DATETIME NOT NULL,  -- Ngày hóa đơn được nhận
+    appointmentId INT NOT NULL,
+    amount FLOAT NOT NULL,
+    paymentStatus NVARCHAR(50) NOT NULL,
+    paymentMethod NVARCHAR(50) NOT NULL,
     FOREIGN KEY (appointmentId) REFERENCES Appointment(id)
 );
 GO
 
--- Tạo bảng Payment
-CREATE TABLE Payment (
-    id INT PRIMARY KEY IDENTITY,
-    invoiceId INT NOT NULL,
-    amount FLOAT NOT NULL,  -- Số tiền thanh toán (sẽ bằng totalAmount trong Invoice)
-    paymentMethod NVARCHAR(50) NOT NULL,  -- Phương thức thanh toán (tiền mặt, thẻ...)
-    paymentDate DATETIME NOT NULL,
-    FOREIGN KEY (invoiceId) REFERENCES Invoice(id)
-);
-GO
-
-
--- Tạo bảng Appointment_Service (bỏ id và thêm trường quantity)
+-- Chèn dữ liệu vào bảng Appointment_Service
 CREATE TABLE Appointment_Service (
+    id INT PRIMARY KEY IDENTITY,
     appointmentId INT NOT NULL,
     serviceId INT NOT NULL,
-    quantity INT NOT NULL,  -- Thêm trường quantity
-    PRIMARY KEY (appointmentId, serviceId),
     FOREIGN KEY (appointmentId) REFERENCES Appointment(id),
     FOREIGN KEY (serviceId) REFERENCES Service(id)
 );
 GO
 
--- Tạo bảng Feedback (thêm trường feedbackTime)
+-- Chèn dữ liệu vào bảng Feedback
 CREATE TABLE Feedback (
     id INT PRIMARY KEY IDENTITY,
     customerId INT NOT NULL,
@@ -93,7 +70,6 @@ CREATE TABLE Feedback (
     serviceId INT NOT NULL,
     rating INT NOT NULL,
     comment NVARCHAR(MAX) NOT NULL,
-    feedbackTime DATETIME NOT NULL,  -- Thêm trường feedbackTime
     FOREIGN KEY (customerId) REFERENCES Customer(id),
     FOREIGN KEY (staffId) REFERENCES Staff(id),
     FOREIGN KEY (appointmentId) REFERENCES Appointment(id),
@@ -101,18 +77,18 @@ CREATE TABLE Feedback (
 );
 GO
 
--- Tạo bảng Account
+-- Chèn dữ liệu vào bảng Account
 CREATE TABLE Account (
     id INT PRIMARY KEY IDENTITY,
-    email NVARCHAR(255) NOT NULL UNIQUE,
-    phoneNumber NVARCHAR(15) NOT NULL UNIQUE,
+    email NVARCHAR(255) NOT NULL UNIQUE,   -- Đảm bảo email là unique
+    phoneNumber NVARCHAR(15) NOT NULL UNIQUE,  -- Đảm bảo phoneNumber là unique
     password NVARCHAR(255) NOT NULL,
     role NVARCHAR(50) NOT NULL,
-    status INT NOT NULL DEFAULT 1
+    status Int NOT NULL
 );
 GO
 
--- Tạo bảng Customer
+-- Chèn dữ liệu vào bảng Customer
 CREATE TABLE Customer (
     id INT PRIMARY KEY IDENTITY,
     accountId INT NOT NULL,
@@ -122,7 +98,7 @@ CREATE TABLE Customer (
 );
 GO
 
--- Tạo bảng Staff
+-- Chèn dữ liệu vào bảng Staff
 CREATE TABLE Staff (
     id INT PRIMARY KEY IDENTITY,
     accountId INT NOT NULL,
@@ -133,7 +109,7 @@ CREATE TABLE Staff (
 );
 GO
 
--- Tạo bảng Admin
+-- Chèn dữ liệu vào bảng Admin
 CREATE TABLE Admin (
     id INT PRIMARY KEY IDENTITY,
     accountId INT NOT NULL,
@@ -143,7 +119,7 @@ CREATE TABLE Admin (
 );
 GO
 
--- Tạo bảng WorkSchedule
+-- Chèn dữ liệu vào bảng WorkSchedule
 CREATE TABLE WorkSchedule (
     id INT PRIMARY KEY IDENTITY,
     staffId INT NOT NULL,
@@ -152,5 +128,16 @@ CREATE TABLE WorkSchedule (
     endTime TIME NOT NULL,
     status NVARCHAR(50) NOT NULL,
     FOREIGN KEY (staffId) REFERENCES Staff(id)
+);
+GO
+
+-- Chèn dữ liệu vào bảng Payment
+CREATE TABLE Payment (
+    id INT PRIMARY KEY IDENTITY,
+    invoiceId INT NOT NULL,
+    amount FLOAT NOT NULL,
+    paymentMethod NVARCHAR(50) NOT NULL,
+    paymentDate DATETIME NOT NULL,
+    FOREIGN KEY (invoiceId) REFERENCES Invoice(id)
 );
 GO

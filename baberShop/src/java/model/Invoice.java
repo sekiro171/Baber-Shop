@@ -4,25 +4,26 @@ import java.time.LocalDate;
 
 public class Invoice {
     private int id;
-    private double amount;
+    private double totalAmount;
     private String paymentStatus;
     private LocalDate receivedDate;
     private int appointmentId;
-    private Integer voucherId;
-
+    private String voucherCode;
+    private String paymentMethod;
+    
     public Invoice() {
     }
 
-    public Invoice(double amount, String paymentStatus, LocalDate receivedDate, int appointmentId, Integer voucherId) {
-        this.amount = amount;
+    public Invoice(double amount, String paymentStatus, LocalDate receivedDate, int appointmentId, String voucherCode, String paymentMethod) {
+        this.totalAmount = amount;
         this.paymentStatus = paymentStatus;
         this.receivedDate = receivedDate;
         this.appointmentId = appointmentId;
-        this.voucherId = voucherId;
+        this.voucherCode = voucherCode;
+        this.paymentMethod = paymentMethod;
     }
 
-    
-    
+  
     // Getters and Setters
     public int getId() {
         return id;
@@ -33,11 +34,11 @@ public class Invoice {
     }
 
     public double getAmount() {
-        return amount;
+        return totalAmount;
     }
 
     public void setAmount(double amount) {
-        this.amount = amount;
+        this.totalAmount = amount;
     }
 
     public String getPaymentStatus() {
@@ -64,11 +65,21 @@ public class Invoice {
         this.appointmentId = appointmentId;
     }
 
-    public Integer getVoucherId() {
-        return voucherId;
+    public String getVoucherCode() {
+        return voucherCode;
     }
 
-    public void setVoucherId(Integer voucherId) {
-        this.voucherId = voucherId;
+    public void setVoucherCode(String voucherCode) {
+        this.voucherCode = voucherCode;
     }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+   
 }
