@@ -11,7 +11,7 @@ public class Invoice {
     private String voucherCode;
     private String paymentMethod;
     
-    public Invoice() {
+    public Invoice(double amount, String paymentStatus1, LocalDate receivedDate1, int appointmentId1, Integer voucherId) {
     }
 
     public Invoice(double amount, String paymentStatus, LocalDate receivedDate, int appointmentId, String voucherCode, String paymentMethod) {

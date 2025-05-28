@@ -11,7 +11,7 @@ public class Service {
 
     // Constructor
 
-    public Service() {
+    public Service(String name1, double price1, int duration1, String description1) {
     }
 
     public Service(int id, String name, float price, int duration, String description, String[] image) {

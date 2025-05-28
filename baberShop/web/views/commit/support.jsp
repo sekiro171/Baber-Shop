@@ -13,37 +13,7 @@
     </head>
     <body>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg custom-navbar border-bottom shadow-sm">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="${pageContext.request.contextPath}/image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">                   
-                    Cut&Styles Barber
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/aboutUs.jsp">Về chúng tôi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/franchise.jsp">Nhượng quyền</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/views/booking/booking.jsp">Đặt lịch</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex gap-2">
-                        <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/views/auth/login.jsp">Đăng nhập</a>
-                        <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/views/auth/register.jsp">Đăng ký</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <%@ include file="/views/common/navbar.jsp" %>
 
         <!-- FAQ Section -->
         <section class="faq-section">

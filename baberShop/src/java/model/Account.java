@@ -1,4 +1,3 @@
-
 package model;
 
 /**
@@ -6,6 +5,7 @@ package model;
  * @author Sekiro
  */
 public class Account {
+
     private int id;
     private String email;
     private String phoneNumber;
@@ -14,12 +14,13 @@ public class Account {
     private int status;
 
     // Constructor
-    public Account(String email, String phoneNumber, String password, String role, int status) {
+    public Account(int id, String email, String password, String role, int status) {
+        this.id = id;
         this.email = email;
-        this.phoneNumber = phoneNumber;
         this.password = password;
         this.role = role;
         this.status = status;
+        this.phoneNumber = phoneNumber;
     }
 
     // Getters and Setters

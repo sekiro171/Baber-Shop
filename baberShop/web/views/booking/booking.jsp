@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="vi">
     <head>
@@ -14,24 +14,7 @@
     </head>
     <body>
         <!-- Navbar -->
-        <nav class="navbar">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="${pageContext.request.contextPath}/image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">                   
-                    Cut&Styles Barber
-                </a>
-                <ul class="nav-links">
-                    <li><a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Trang chủ</a></li>
-                    <li><a class="nav-link" href="${pageContext.request.contextPath}/views/common/aboutUs.jsp">Về chúng tôi</a></li>
-                    <li><a class="nav-link" href="${pageContext.request.contextPath}/views/common/franchise.jsp">Nhượng quyền</a></li>
-                </ul>
-                <div class="auth-buttons">
-                    <a class="btn-auth" href="${pageContext.request.contextPath}/views/auth/login.jsp">Đăng nhập</a>
-                    <a class="btn-auth" href="${pageContext.request.contextPath}/views/auth/register.jsp">Đăng ký</a>
-                </div>
-            </div>
-        </nav>
-
+        <%@ include file="/views/common/navbar.jsp" %>
         <!-- Background Image Section -->
         <div class="background-section"></div>
 

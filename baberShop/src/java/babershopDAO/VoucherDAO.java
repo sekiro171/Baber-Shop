@@ -45,7 +45,7 @@ public class VoucherDAO {
                 String date = rs.getString(3);
                 LocalDate expiryDate = LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
                 String status = rs.getString(4);
-                Voucher voucher = new Voucher(code, value, expiryDate, status);
+                Voucher voucher = new Voucher(code, (float) value, expiryDate, status);
                 return voucher;
             }
         } catch (Exception e) {
@@ -66,7 +66,7 @@ public class VoucherDAO {
                 String date = rs.getString(3);
                 LocalDate expiryDate = LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
                 String status = rs.getString(4);
-                Voucher voucher = new Voucher(code, value, expiryDate, status);
+                Voucher voucher = new Voucher(code, (float) value, expiryDate, status);
 
                 vouchers.add(voucher);
             }

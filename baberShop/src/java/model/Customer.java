@@ -5,13 +5,14 @@ package model;
  * @author Sekiro
  */
 public class Customer {
+
     private int id;
     private int accountId;
     private String firstName;
     private String lastName;
 
     // Constructor
-    public Customer(int accountId, String firstName, String lastName) {
+    public Customer(String firstName, String lastName, String email, String phoneNumber) {
         this.accountId = accountId;
         this.firstName = firstName;
         this.lastName = lastName;

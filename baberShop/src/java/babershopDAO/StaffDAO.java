@@ -129,7 +129,7 @@ public class StaffDAO {
     }
 
     public static boolean deleteStaff(int id) {
-        String sql = "update status from Staff = 0 where id =?";
+        String sql = "UPDATE Staff SET status = 0 WHERE id=?";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);

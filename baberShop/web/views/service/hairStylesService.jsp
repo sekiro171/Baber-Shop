@@ -12,45 +12,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
     <body>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg custom-navbar border-bottom shadow-sm">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="${pageContext.request.contextPath}/image/image_logo/LogoShop.png" alt="Logo" width="55" height="55" class="me-2">                   
-                    Cut&Styles Barber
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/aboutUs.jsp">Về chúng tôi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/views/common/franchise.jsp">Nhượng quyền</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/views/booking/booking.jsp">Đặt lịch</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex gap-2">
-                        <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/views/auth/login.jsp">Đăng nhập</a>
-                        <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/views/auth/register.jsp">Đăng ký</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <%@ include file="/views/common/navbar.jsp" %>
 
 
         <!-- Service Section -->
         <section class="service-section">
             <div class="container py-5">
                 <h2 class="section-title text-center mb-5">UỐN ĐỊNH HÌNH NẾP TÓC</h2>
-       
+
                 <div class="row g-4 justify-content-center">
                     <!-- Service Item 1 -->
                     <div class="col-md-6 col-lg-4">
@@ -106,9 +75,9 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <h2 class="section-title text-center my-5">THAY ĐỔI MÀU TÓC</h2>
-       
+
                 <div class="row g-4 justify-content-center" id="nhuom-toc">
                     <!-- Service Item 3 -->
                     <div class="col-md-6 col-lg-4">
@@ -171,7 +140,7 @@
         <div class="booking-cta py-5 text-center">
             <a href="${pageContext.request.contextPath}/views/booking/booking.jsp" class="btn btn-primary btn-lg">Đặt lịch ngay</a>
         </div>
-        
+
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
@@ -212,6 +181,6 @@
         </footer>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-     
+
     </body>
 </html>

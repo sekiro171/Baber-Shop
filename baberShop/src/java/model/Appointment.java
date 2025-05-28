@@ -13,7 +13,7 @@ public class Appointment {
 
     // Constructor
 
-    public Appointment() {
+    public Appointment(LocalDateTime appointment_time, int customerId1, int staff) {
     }
 
     public Appointment(int id, int customerId, int staffId, LocalDateTime appointmentTime, String status, int numberOfPeople) {

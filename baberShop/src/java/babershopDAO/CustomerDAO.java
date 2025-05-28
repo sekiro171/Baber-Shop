@@ -125,7 +125,7 @@ public class CustomerDAO {
 }
     
     public static boolean deleteCustomer(int id){
-        String sql = "update status from Customer = 0 where id =?";
+        String sql = "UPDATE Customer SET status = 0 WHERE id =?";
         try (Connection con = getConnect()){
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);

@@ -1,7 +1,7 @@
-
 package model;
 
 public class Staff {
+
     private int id;
     private int accountId;
     private String firstName;
@@ -9,7 +9,7 @@ public class Staff {
     private String img;
 
     // Constructor
-    public Staff(int accountId, String firstName, String lastName, String img) {
+    public Staff(String firstName, String lastName, String img, String phoneNumber) {
         this.accountId = accountId;
         this.firstName = firstName;
         this.lastName = lastName;
