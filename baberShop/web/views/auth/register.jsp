@@ -82,7 +82,7 @@
                 <button type="submit" class="register-btn" id="registerBtn">Đăng ký</button>
 
                 <div class="login-link">
-                    Bạn đã có tài khoản? <a href="login.jsp">Đăng nhập ngay</a>
+                    Bạn đã có tài khoản? <a href="${pageContext.request.contextPath}/login.jsp">Đăng nhập ngay</a>
                 </div>
             </form>
         </div>

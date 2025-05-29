@@ -36,18 +36,16 @@ public class StaffDAO {
         return null;
     }
 
-    public static Staff getStaff(int id) {
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Staff] WHERE id = ?";
+    public static Staff getStaffByAccountId(int accountId) {
+        String sql = "SELECT * FROM [Staff] WHERE accountId = ?";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, accountId);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Staff staff = new Staff(firstName, lastName, email, phoneNumber);
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
+                Staff staff = new Staff(firstName, lastName);
                 System.out.println(staff);
                 return staff;
             }
@@ -65,7 +63,7 @@ public class StaffDAO {
             st.setString(2, password);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                Staff staff = new Staff(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("phone_number"));
+                Staff staff = new Staff(rs.getString("first_name"), rs.getString("last_name"));
                 return staff;
             }
         } catch (SQLException e) {
@@ -85,7 +83,7 @@ public class StaffDAO {
                 String lastName = rs.getString(2);
                 String email = rs.getString(3);
                 String phoneNumber = rs.getString(4);
-                Staff staff = new Staff(firstName, lastName, email, phoneNumber);
+                Staff staff = new Staff(firstName, lastName);
                 staffs.add(staff);
             }
             return staffs;

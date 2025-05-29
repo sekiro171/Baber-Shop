@@ -599,7 +599,7 @@
                     <div class="d-flex gap-2 align-items-center">
                         <div class="text-warning d-none d-lg-block me-3">
                             <i class="fas fa-user-shield me-1"></i>
-                            <span>${sessionScope.adminName != null ? sessionScope.adminName : 'Admin'}</span>
+                            <span> ${sessionScope.admin.lastName} ${sessionScope.admin.firstName}</span>
                         </div>
                         <a class="btn btn-warning" href="${pageContext.request.contextPath}/logout" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất?')">
                             <i class="fas fa-sign-out-alt me-1"></i>

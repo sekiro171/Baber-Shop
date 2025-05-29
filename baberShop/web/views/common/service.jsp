@@ -1,4 +1,3 @@
-<!-- Service -->
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <div class="container py-5 service-sections">
     <!-- DỊCH VỤ TÓC -->

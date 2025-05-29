@@ -6,7 +6,9 @@
 package controller;
 
 import babershopDAO.AccountDAO;
+import babershopDAO.AdminDAO;
 import babershopDAO.CustomerDAO;
+import babershopDAO.StaffDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -17,7 +19,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Account;
+import model.Admin;
 import model.Customer;
+import model.Staff;
 
 /**
  *
@@ -40,6 +44,13 @@ public class LoginServlet extends HttpServlet {
         if (account != null) {
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
+            
+            Customer customer = CustomerDAO.getCustomerByAccountId(account.getId());
+            session.setAttribute("customer", customer);
+            Staff staff = StaffDAO.getStaffByAccountId(account.getId());
+            session.setAttribute("staff", staff);
+            Admin admin = AdminDAO.getAdminByAccountId(account.getId());
+            session.setAttribute("admin", admin);
             if ("Admin".equals(account.getRole())) {
                 response.sendRedirect(request.getContextPath() + "/views/admin/dashboard.jsp");
             } else if ("Staff".equals(account.getRole())) {
@@ -57,7 +68,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             request.setAttribute("loginError", "Sai email hoặc mật khẩu!");
             System.out.println("Login fail");
-            request.getRequestDispatcher("/views/common/home.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }

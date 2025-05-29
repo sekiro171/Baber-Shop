@@ -50,18 +50,16 @@ public class AdminDAO {
         return null;
     }
 
-    public static Customer getAdmin(int id) {
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Admin] WHERE id = ?";
+    public static Admin getAdminByAccountId(int accountId) {
+        String sql = "SELECT * FROM [Admin] WHERE accountId = ?";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, accountId);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Customer cs = new Customer(firstName, lastName, email, phoneNumber);
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
+                Admin cs = new Admin(firstName, lastName);
                 System.out.println(cs);
                 return cs;
             }

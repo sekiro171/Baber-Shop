@@ -32,18 +32,17 @@ public class CustomerDAO {
     }
     
     
-    public static Customer  getCustomer (int id){
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Customer] WHERE id = ?";
+    public static Customer  getCustomerByAccountId (int accountId){
+        String sql = "SELECT * FROM [Customer] WHERE accountId = ?";
         try (Connection con = getConnect()){
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, accountId);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
                 String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Customer cs = new Customer(firstName, lastName, email, phoneNumber);
+                Customer cs = new Customer(firstName, lastName);
                 System.out.println(cs);
                 return cs;
             }
@@ -61,7 +60,7 @@ public class CustomerDAO {
             st.setString(2, password);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                Customer customer = new Customer(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("phone_number"));
+                Customer customer = new Customer(rs.getString("first_name"), rs.getString("last_name"));
                 return customer;
             }
         } catch (SQLException e) {
@@ -81,7 +80,7 @@ public class CustomerDAO {
                 String lastName = rs.getString(2);
                 String email = rs.getString(3);
                 String phoneNumber = rs.getString(4);
-                Customer cs = new Customer(firstName, lastName, email, phoneNumber);
+                Customer cs = new Customer(firstName, lastName);
                 customers.add(cs);
             }
             return customers;

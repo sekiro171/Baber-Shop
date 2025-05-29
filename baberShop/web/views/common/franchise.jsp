@@ -168,7 +168,7 @@
                 <div class="row">
                     <!-- Logo and About -->
                     <div class="col-lg-4 col-md-6 footer-col">
-                        <img src="image/image_logo/LogoShop.png" alt="Cut&Styles Logo" class="footer-logo">                      
+                        <img src="${pageContext.request.contextPath}/image/image_logo/LogoShop.png" alt="Cut&Styles Logo" class="footer-logo">                      
                     </div>
 
                     <!-- Links -->

@@ -61,7 +61,11 @@
                 <div class="social-login">
                     <p>Hoặc đăng nhập với</p>
                     <div class="social-icons">
-                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email profile openid&redirect_uri=http://localhost:8080/baberShop/login&response_type=code&client_id=552910919594-b47aioal2hmfeusv4npr35bfegd7ocun.apps.googleusercontent.com&approval_prompt=force" class="social-icon google">
+                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email 
+                           profile openid&redirect_uri=http://localhost:8080/Cut_StyleBarber/login 
+                           &response_type=code 
+                           &client_id=205755126849-3i67q0ljfm9tea75ibskib9rnhat6ofd.apps.googleusercontent.com&approval_ prompt=force"
+                           class="social-icon google">
                             <i class="fab fa-google"></i>
                             <span>Đăng nhập với Google</span>
                         </a>
@@ -69,8 +73,8 @@
                 </div>
 
                 <div class="register-link">
-                    Bạn chưa có tài khoản? <a href="register.jsp">Đăng ký ngay</a>         
-                    <a href="${pageContext.request.contextPath}/index.jsp">Quay về trang chủ 🏠</a>
+                    Bạn chưa có tài khoản? <a href="${pageContext.request.contextPath}/views/auth/register.jsp">Đăng ký ngay</a>         
+                    <a href="${pageContext.request.contextPath}/views/common/home.jsp">Quay về trang chủ 🏠</a>
                 </div>
 
             </form>

@@ -9,7 +9,7 @@ public class Staff {
     private String img;
 
     // Constructor
-    public Staff(String firstName, String lastName, String img, String phoneNumber) {
+    public Staff(String firstName, String lastName) {
         this.accountId = accountId;
         this.firstName = firstName;
         this.lastName = lastName;

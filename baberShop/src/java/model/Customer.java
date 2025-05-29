@@ -12,7 +12,7 @@ public class Customer {
     private String lastName;
 
     // Constructor
-    public Customer(String firstName, String lastName, String email, String phoneNumber) {
+    public Customer(String firstName, String lastName) {
         this.accountId = accountId;
         this.firstName = firstName;
         this.lastName = lastName;

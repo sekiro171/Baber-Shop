@@ -520,7 +520,7 @@
                 <div class="d-flex gap-2 align-items-center">
                     <div class="text-warning d-none d-lg-block me-3">
                         <i class="fas fa-user-tie me-1"></i>
-                        <span class="me-3" style="color: #FF9900"> Nhân viên: <strong>${sessionScope.account.email}</strong></span>
+                        <span class="me-3" style="color: #FF9900"> Nhân viên: <strong>${sessionScope.staff.lastName} ${sessionScope.staff.firstName}</strong></span>
                     </div>
                     <a class="btn btn-warning" href="${pageContext.request.contextPath}/logout" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất?')" aria-label="Đăng xuất">
                         <i class="fas fa-sign-out-alt me-1"></i>

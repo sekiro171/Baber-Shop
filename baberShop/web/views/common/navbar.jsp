@@ -53,7 +53,7 @@
 
                 <!-- Hiển thị thông tin người dùng và logout nếu đã đăng nhập -->
                 <c:if test="${sessionScope.account != null}">
-                    <span class="me-3" style="color: #FF9900"> Xin chào, <strong>${sessionScope.account.email}</strong></span>
+                    <span class="me-3" style="color: #FF9900"> Xin chào, <strong>${sessionScope.customer.lastName} ${sessionScope.customer.firstName}</strong></span>
                     <a href="${pageContext.request.contextPath}/logout" class="btn btn-outline-danger">Logout</a>
                 </c:if>
             </div>
