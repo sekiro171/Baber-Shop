@@ -11,8 +11,8 @@ public class Customer extends Account{
     private String lastName;
 
     // Constructor
-    public Customer(String email, String phoneNumber, String password, String role, String status, String firstName, String lastName) {
-        super(email, phoneNumber, password, role, status);  // Call to superclass constructor
+    public Customer(String email, String phoneNumber, String password, String role, int status, String firstName, String lastName) {
+        super(email, phoneNumber, password, role, status); 
         this.firstName = firstName;
         this.lastName = lastName;
     }

@@ -6,10 +6,12 @@ public abstract class Account {
     protected String phoneNumber;
     protected String password;
     protected String role;
-    protected String status;
+    protected int status;
 
+    public Account() {
+    }
     // Constructor
-    public Account(String email, String phoneNumber, String password, String role, String status) {
+    public Account(String email, String phoneNumber, String password, String role, int status) {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
@@ -50,11 +52,11 @@ public abstract class Account {
         this.role = role;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vi">
@@ -8,6 +9,34 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/register.css">  
         <!-- Font Awesome CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+         <style>
+        /* Đoạn CSS được sử dụng ở trên */
+        .alert {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 500px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert:hover {
+            background-color: #f1b0b7;
+            border-color: #f1a0a8;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+    </style>
+
     </head>
     <body>
         <div class="register-container">
@@ -19,7 +48,14 @@
                 <p>PREMIUM BARBER SHOP</p>
             </div>
 
-            <form action="register" method="post" id="registerForm">
+            <c:if test="${error!=null }">
+                <div style="margin-top: 20px" class="alert alert-danger" role="alert">
+                    ${error}
+                </div>
+            </c:if>
+
+            <form action="RegisterServlet" method="post" id="registerForm">
+
                 <div class="form-columns">
                     <div class="form-group">
                         <label for="firstName">Họ</label>

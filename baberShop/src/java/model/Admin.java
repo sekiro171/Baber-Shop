@@ -11,16 +11,32 @@ package model;
 public class Admin extends Account {
 
     private int id;
+    private int accountId;
     private String firstName;
     private String lastName;
 
 
-    public Admin(String email, String phoneNumber, String password, String role, String status, String firstName, String lastName) {
+    public Admin(String email, String phoneNumber, String password, String role, int status, String firstName, String lastName) {
         super(email, phoneNumber, password, role, status);  // Call to superclass constructor
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
+    public Admin(int accountId, String firstName, String lastName, String email, String phoneNumber, String password, String role, int status) {
+        super(email, phoneNumber, password, role, status);
+        this.accountId = accountId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
+    
     public int getId() {
         return id;
     }

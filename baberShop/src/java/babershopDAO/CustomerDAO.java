@@ -89,19 +89,18 @@ public class CustomerDAO {
         return null;
     }
 
-    public static boolean insertCustomer(String firstName, String lastName, String email, String password, String phoneNumber) {
-        String sql1 = "INSERT INTO Account (email, password, phoneNumber, role) VALUES (?,?,?,?)";
+    public static void insertCustomer(String firstName, String lastName, String email, String password, String phoneNumber) {
+        String sql1 = "INSERT INTO Account (email, phoneNumber, password , role) VALUES (?,?,?,?)";
         String sql2 = "INSERT INTO Customer (accountId, firstName, lastName) VALUES (?,?,?)";
         try (Connection con = getConnect()) {
             PreparedStatement accountStmt = con.prepareStatement(sql1, PreparedStatement.RETURN_GENERATED_KEYS);
             accountStmt.setString(1, email);
-            accountStmt.setString(2, password);
-            accountStmt.setString(3, phoneNumber);
-            accountStmt.setString(4, "Cutomer");
+            accountStmt.setString(2, phoneNumber);
+            accountStmt.setString(3, password);
+            accountStmt.setString(4, "Customer");
             int affectedRows = accountStmt.executeUpdate();
             if (affectedRows == 0) {
                 con.rollback();
-                return false;
             }
             ResultSet rs = accountStmt.getGeneratedKeys();
             int accountID = 0;
@@ -117,10 +116,9 @@ public class CustomerDAO {
             if (affectedRows > 0) {
                 // neu commit thanh cong
                 con.commit();
-                return true;
             } else {
                 con.rollback();
-                return false;  // Không tạo được customer
+
             }
         } catch (SQLException e) {
             try (Connection con = getConnect()) {
@@ -129,7 +127,6 @@ public class CustomerDAO {
                 ex.printStackTrace();
             }
             e.printStackTrace();
-            return false;
         } finally {
             try (Connection con = getConnect();) {
                 con.setAutoCommit(true);  // Đặt lại chế độ commit tự động
@@ -137,14 +134,11 @@ public class CustomerDAO {
                 e.printStackTrace();
             }
         }
-
-    
-
-    
+    }
 
     public static void updateCustomer(int id, String firstName, String lastName, String email, String password, String phoneNumber) {
 
-        String sql = "UPDATE Customer SET first_name = ?, last_name = ?, email = ?, password = ?, phone_number = ? WHERE id = ?";
+        String sql = "UPDATE Customer SET firstName = ?, lastName = ? WHERE id = ?";
 
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -175,7 +169,35 @@ public class CustomerDAO {
         return false;
     }
 
-    public static void main(String[] args) {
-        System.out.println("1");
+    public static boolean checkEmailExist(String email) {
+        String sql = "Select id from Account where email=?";
+        try (Connection con = getConnect()) {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+
+        }
+        return false;
     }
+    
+    
+    public static boolean checkPhoneExist(String phoneNummber) {
+        String sql = "Select id from Account where phoneNumber=?";
+        try (Connection con = getConnect()) {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, phoneNummber);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+
+        }
+        return false;
+    }
+    
 }
