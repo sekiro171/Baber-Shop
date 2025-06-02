@@ -71,7 +71,7 @@
                             <div class="faq-toggle">+</div>
                         </div>
                         <div class="faq-answer">
-                            <p>Thời gian hoàn thành Shine Combo thường dao động từ 45-60 phút, tùy thuộc vào độ dài và phức tạp của kiểu tóc. Combo này bao gồm cắt tóc, gội đầu massage, sấy tạo kiểu và các bước dưỡng. Chúng tôi chú trọng vào chất lượng và sự tỉ mỉ trong từng bước, nên thời gian có thể dài hơn một chút so với dịch vụ cắt tóc thông thường.</p>
+                            <p>Thời gian hoàn thành Cut&Styles Combo thường dao động từ 45-60 phút, tùy thuộc vào độ dài và phức tạp của kiểu tóc. Combo này bao gồm cắt tóc, gội đầu massage, sấy tạo kiểu và các bước dưỡng. Chúng tôi chú trọng vào chất lượng và sự tỉ mỉ trong từng bước, nên thời gian có thể dài hơn một chút so với dịch vụ cắt tóc thông thường.</p>
                         </div>
                     </div>
 
@@ -146,7 +146,7 @@
                     <!-- FAQ Item 14 -->
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <span>30Shine có cắt tóc cho trẻ em không?</span>
+                            <span>Cut&Style có cắt tóc cho trẻ em không?</span>
                             <div class="faq-toggle">+</div>
                         </div>
                         <div class="faq-answer">

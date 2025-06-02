@@ -14,7 +14,7 @@ public class Account {
     private int status;
 
     // Constructor
-    public Account(int id, String email, String password, String role, int status) {
+    public Account(int id, String email, String password, String role, int status, String phoneNumber) {
         this.id = id;
         this.email = email;
         this.password = password;
