@@ -51,25 +51,34 @@ public class AdminDAO {
     }
 
     public static Customer getAdmin(int id) {
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Admin] WHERE id = ?";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Customer cs = new Customer(firstName, lastName, email, phoneNumber);
-                System.out.println(cs);
-                return cs;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
+    String sql = "SELECT a.id, a.accountId, a.firstName, a.lastName, " +
+                 "acc.email, acc.phoneNumber, acc.status " +
+                 "FROM Admin a JOIN Account acc ON a.accountId = acc.id " +
+                 "WHERE a.id = ?";
+
+    try (Connection con = getConnect()) {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            Customer cs = new Customer(
+                rs.getInt("id"),
+                rs.getInt("accountId"),
+                rs.getString("firstName"),
+                rs.getString("lastName"),
+                rs.getString("email"),
+                rs.getString("phoneNumber"),
+                rs.getInt("status")
+            );
+            System.out.println(cs);
+            return cs;
         }
-        return null;
+    } catch (Exception e) {
+        System.out.println("🔥 ERROR in getAdmin(): " + e);
     }
+    return null;
+}
+
 
     public static List<Admin> getAllAdmin() {
         List<Admin> admins = new ArrayList<>();

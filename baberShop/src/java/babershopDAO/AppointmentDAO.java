@@ -4,6 +4,7 @@ import static babershopDatabase.databaseInfo.DBURL;
 import static babershopDatabase.databaseInfo.DRIVERNAME;
 import static babershopDatabase.databaseInfo.PASSDB;
 import static babershopDatabase.databaseInfo.USERDB;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,8 +14,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
 import model.Appointment;
-import model.Service;
 
 public class AppointmentDAO {
 
@@ -25,8 +26,7 @@ public class AppointmentDAO {
             System.out.println("Error loading driver" + e);
         }
         try {
-            Connection con = DriverManager.getConnection(DBURL, USERDB, PASSDB);
-            return con;
+            return DriverManager.getConnection(DBURL, USERDB, PASSDB);
         } catch (SQLException e) {
             System.out.println("Error: " + e);
         }
@@ -34,18 +34,16 @@ public class AppointmentDAO {
     }
 
     public static Appointment getAppointment(int id) {
-        String sql = "Select appointment_time,  customer_id, staff_id from Appointment where id= ?";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
+        String sql = "SELECT appointment_time, customer_id, staff_id FROM Appointment WHERE id = ?";
+        try (Connection con = getConnect();
+             PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String date = rs.getString(1);
-                LocalDateTime appointment_time = LocalDateTime.parse(date, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                LocalDateTime appointmentTime = LocalDateTime.parse(rs.getString(1), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                 int customerId = rs.getInt(2);
-                int staff = rs.getInt(3);
-                Appointment appointment = new Appointment(appointment_time, customerId, staff);
-                return appointment;
+                int staffId = rs.getInt(3);
+                return new Appointment(appointmentTime, customerId, staffId);
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -55,29 +53,26 @@ public class AppointmentDAO {
 
     public static List<Appointment> getAllAppointments() {
         List<Appointment> appointments = new ArrayList<>();
-        String sql = "Select appointment_time,  customer_id, staff_id from Appointment";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+        String sql = "SELECT appointment_time, customer_id, staff_id FROM Appointment";
+        try (Connection con = getConnect();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                String date = rs.getString(1);
-                LocalDateTime appointment_time = LocalDateTime.parse(date, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                LocalDateTime appointmentTime = LocalDateTime.parse(rs.getString(1), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
                 int customerId = rs.getInt(2);
-                int staff = rs.getInt(3);
-                Appointment appointment = new Appointment(appointment_time, customerId, staff);
-                appointments.add(appointment);
-                return appointments;
+                int staffId = rs.getInt(3);
+                appointments.add(new Appointment(appointmentTime, customerId, staffId));
             }
         } catch (Exception e) {
             System.out.println(e);
         }
-        return null;
+        return appointments;
     }
 
     public static void insertAppointment(String appointmentTime, int customerId, int staffId) {
-        String sql = "INSERT INTO Appointment (appointment_time, customer_id, staff_id, ) VALUES (?,?,?)";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
+        String sql = "INSERT INTO Appointment (appointment_time, customer_id, staff_id) VALUES (?, ?, ?)";
+        try (Connection con = getConnect();
+             PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, appointmentTime);
             ps.setInt(2, customerId);
             ps.setInt(3, staffId);
@@ -88,12 +83,11 @@ public class AppointmentDAO {
     }
 
     public static void updateAppointment(int id, int staffId) {
-
         String sql = "UPDATE Appointment SET staff_id = ? WHERE id = ?";
-
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
+        try (Connection con = getConnect();
+             PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, staffId);
+            ps.setInt(2, id);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -101,13 +95,28 @@ public class AppointmentDAO {
     }
 
     public static void deleteAppointment(int id) {
-        String sql = "delete from Appointment where id=?";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
+        String sql = "DELETE FROM Appointment WHERE id = ?";
+        try (Connection con = getConnect();
+             PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public static List<String> getAllBookedDates() {
+        List<String> dates = new ArrayList<>();
+        String sql = "SELECT DISTINCT CAST(appointment_time AS DATE) AS bookedDate FROM Appointment WHERE status IN ('Pending', 'Confirmed')";
+        try (Connection conn = getConnect();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                dates.add(rs.getDate("bookedDate").toString());
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return dates;
     }
 }

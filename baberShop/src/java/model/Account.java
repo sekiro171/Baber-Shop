@@ -1,9 +1,5 @@
 package model;
 
-/**
- *
- * @author Sekiro
- */
 public class Account {
 
     private int id;
