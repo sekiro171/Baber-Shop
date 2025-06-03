@@ -41,7 +41,7 @@ public class AccountDAO {
                 int id = rs.getInt("id");
                 String phoneNumber = rs.getString("phoneNumber");
                 String role = rs.getString("role");
-                Account account = new Account(id, email, password, role, 1, phoneNumber);
+                Account account = new Account(id, email, password, role, 1, phoneNumber) {};
                 return account;
             }
         } catch (SQLException e) {
@@ -99,7 +99,7 @@ public class AccountDAO {
                 int id = rs.getInt("id");
                 String phoneNumber = rs.getString("phoneNumber");
                 String role = rs.getString("role");
-                return new Account(id, email, null, role, 1, phoneNumber);
+                return new Account(id, email, null, role, 1, phoneNumber) {};
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -118,7 +118,7 @@ public class AccountDAO {
                 String phoneNumber = rs.getString("phoneNumber");
                 String password = rs.getString("password");
                 String role = rs.getString("role");
-                return new Account(id, email, password, role, 1, phoneNumber);
+                return new Account(id, email, password, role, 1, phoneNumber) {};
             }
         } catch (SQLException e) {
             System.out.println(e);

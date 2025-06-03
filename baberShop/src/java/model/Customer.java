@@ -4,7 +4,7 @@ package model;
  *
  * @author Sekiro
  */
-public class Customer {
+public class Customer extends Account{
 
     private int id;
     private int accountId;
@@ -12,11 +12,22 @@ public class Customer {
     private String lastName;
 
     // Constructor
+
+    public Customer(int id, int accountId, String firstName, String lastName, String email, String phoneNumber, String password, String role, int status) {
+        super(email, phoneNumber, password, role, status);
+        this.id = id;
+        this.accountId = accountId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public Customer(int accountId, String firstName, String lastName) {
         this.accountId = accountId;
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    
+        
 
     // Getters and Setters
     public int getId() {

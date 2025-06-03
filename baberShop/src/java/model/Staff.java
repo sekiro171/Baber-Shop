@@ -1,6 +1,6 @@
 package model;
 
-public class Staff {
+public class Staff extends Account{
 
     private int id;
     private int accountId;
@@ -9,12 +9,20 @@ public class Staff {
     private String img;
 
     // Constructor
-    public Staff(String firstName, String lastName) {
+    public Staff(int id, int accountId, String firstName, String lastName, String img, String email, String phoneNumber, String password, String role, int status) {
+        super(email, phoneNumber, password, role, status);
+        this.id = id;
         this.accountId = accountId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.img = img;
     }
+
+    public Staff(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    
 
     // Getters and Setters
     public int getId() {

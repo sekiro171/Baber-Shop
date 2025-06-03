@@ -4,7 +4,7 @@ package model;
  *
  * @author Sekiro
  */
-public class Account {
+public abstract class Account {
 
     private int id;
     private String email;
@@ -23,6 +23,29 @@ public class Account {
         this.phoneNumber = phoneNumber;
     }
 
+    public Account(String email, String phoneNumber, String password, String role, int status) {
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.role = role;
+        this.status = status;
+    }
+
+    public Account(String email, String phoneNumber, String password) {
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+    }
+
+    public Account(String email, String phoneNumber) {
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Account() {
+    }
+    
+    
     // Getters and Setters
     public int getId() {
         return id;
