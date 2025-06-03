@@ -32,48 +32,9 @@ public class AppointmentDAO {
             System.out.println("Error: " + e);
         }
         return null;
+    
     }
 
-    public Appointment getAppointment(int id) {
-        String sql = "Select appointment_time,  customer_id, staff_id from Appointment where id= ?";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String date = rs.getString(1);
-                LocalDateTime appointment_time = LocalDateTime.parse(date, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-                int customerId = rs.getInt(2);
-                int staff = rs.getInt(3);
-                Appointment appointment = new Appointment(appointment_time, customerId, staff);
-                return appointment;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
-
-    public List<Appointment> getAllAppointments() {
-        List<Appointment> appointments = new ArrayList<>();
-        String sql = "Select appointment_time,  customer_id, staff_id from Appointment";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                String date = rs.getString(1);
-                LocalDateTime appointment_time = LocalDateTime.parse(date, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-                int customerId = rs.getInt(2);
-                int staff = rs.getInt(3);
-                Appointment appointment = new Appointment(appointment_time, customerId, staff);
-                appointments.add(appointment);
-                return appointments;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
 
     public void insertAppointment(String appointmentTime, int customerId, int staffId) {
         String sql = "INSERT INTO Appointment (appointment_time, customer_id, staff_id, ) VALUES (?,?,?)";

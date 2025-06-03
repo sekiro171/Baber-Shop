@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import model.Service;
@@ -33,49 +34,8 @@ public class VoucherDAO {
         return null;
     }
 
-    public static Voucher getVoucher(int id) {
-        String sql = "Select code, value, expiry_date, status from Voucher where id= ?";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String code = rs.getString(1);
-                double value = rs.getDouble(2);
-                String date = rs.getString(3);
-                LocalDate expiryDate = LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
-                String status = rs.getString(4);
-                Voucher voucher = new Voucher(code, value, expiryDate, status);
-                return voucher;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
 
-    public static List<Voucher> getAllVoucers() {
-        List<Voucher> vouchers = new ArrayList<>();
-        String sql = "Select code, value, expiry_date, status from Voucher";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                String code = rs.getString(1);
-                double value = rs.getDouble(2);
-                String date = rs.getString(3);
-                LocalDate expiryDate = LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
-                String status = rs.getString(4);
-                Voucher voucher = new Voucher(code, value, expiryDate, status);
 
-                vouchers.add(voucher);
-            }
-            return vouchers;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
 
     public static void insertVouher (String name, double price, int duration, String description) {
         String sql = "INSERT INTO Service (name, price, duration, description) VALUES (?,?,?,?)";
@@ -90,6 +50,25 @@ public class VoucherDAO {
             System.out.println(e);
         }
     }
+    
+//        public static List <Voucher> vouchers () {
+//        String sql = "Select * from Voucher";
+//        try (Connection con = getConnect()) {
+//            List <Voucher> vouchers = new ArrayList<>();
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ResultSet rs = ps.executeQuery();
+//            while(rs.next()){
+//                String code = rs.getString("code");
+//                float value = rs.getFloat("value");
+//                String expiryDate = rs.getString("expiryDate");
+//                String status = rs.getString("status");
+//                
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
+//    
 
     public static void deleteVoucher(int id) {
         String sql = "delete from Voucher where id=?";

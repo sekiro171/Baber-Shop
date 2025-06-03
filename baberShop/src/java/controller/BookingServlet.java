@@ -26,7 +26,6 @@ import model.Staff;
 @WebServlet(name = "BookingServlet", urlPatterns = {"/BookingServlet"})
 public class BookingServlet extends HttpServlet {
 
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -47,12 +46,12 @@ public class BookingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List <Staff> staffs = StaffDAO.getAllStaff();
+        List<Staff> staffs = StaffDAO.getAllStaff();
         request.setAttribute("listOfStaff", staffs);
         request.getRequestDispatcher("booking.jsp").forward(request, response);
     }
 
-@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -69,7 +68,6 @@ public class BookingServlet extends HttpServlet {
 //                appointmentDateStr == null || appointmentTimeStr == null || serviceIds == null) {
 //                throw new IllegalArgumentException("One or more required parameters are missing");
 //            }
-
             // Parse parameters
 //            int customerId = Integer.parseInt(customerIdStr);
 //            int staffId = Integer.parseInt(staffIdStr);
@@ -84,28 +82,31 @@ public class BookingServlet extends HttpServlet {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String dateTime = appointmentDateTime.format(formatter);
 
-
             // Call AppointmentDAO (assuming it handles multiple services)
             AppointmentDAO appointmentDAO = new AppointmentDAO();
             // Since the original Booking method only handles one serviceId, loop through serviceIds
             String message = null;
 
+            message = appointmentDAO.Booking(1, 1, dateTime, numberOfPeople, 1);
+            if (message.equals("Booking successful")) {
+                // Redirect to confirmation page
+                request.setAttribute("message", message);
+                request.setAttribute("customerId", 1);
+                request.setAttribute("staffId", 1);
+                request.setAttribute("appointmentTime", dateTime);
+                request.setAttribute("serivceId", 1);
+                request.setAttribute("numberOfPeople",  numberOfPeople);
+                request.getRequestDispatcher("/views/booking/confirmationServlet").forward(request, response);
+            }
 
-                message = appointmentDAO.Booking(1, 1, dateTime, numberOfPeople, 1);
-                System.out.println("Booking result for service ID " + ": " + message);
-            
-
-            // Redirect to confirmation page
-            request.setAttribute("message", message);
-            request.getRequestDispatcher("/views/booking/confirmation.jsp").forward(request, response);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "Invalid input: " + e.getMessage());
             request.getRequestDispatcher("/views/error.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("errorMessage", "Error processing booking: " + e.getMessage());
-            request.getRequestDispatcher("/views/error.jsp").forward(request, response);
+            request.setAttribute("errorMessage", e.getMessage());
+            request.getRequestDispatcher("/views/booking/booking.jsp").forward(request, response);
         }
     }
 

@@ -33,49 +33,9 @@ public class InvoiceDAO {
         return null;
     }
 
-    public static Invoice getInvoice(int appointmentId) {
-        String sql = "Select amount, paymentStatus, receivedDate, voucherId from Invoice where appointmentId=?";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, appointmentId);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                double amount = rs.getDouble(1);
-                String paymentStatus = rs.getString(2);
-                String date = rs.getString(3);
-                LocalDate receivedDate = LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
-                Integer voucherId = rs.getInt(4);
-                Invoice invoice = new Invoice(amount, paymentStatus, receivedDate, appointmentId, voucherId);
-                return invoice;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
+  
 
-    public static List<Invoice> getAllInvoice() {
-        List<Invoice> invoices = new ArrayList<>();
-        String sql = "Select amount, paymentStatus, receivedDate,appointmentId, voucherId from Invoice";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                double amount = rs.getDouble(1);
-                String paymentStatus = rs.getString(2);
-                String date = rs.getString(3);
-                LocalDate receivedDate = LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
-                int appointmentId = rs.getInt(4);
-                Integer voucherId = rs.getInt(5);
-                Invoice invoice = new Invoice(amount, paymentStatus, receivedDate, appointmentId, voucherId);
-                invoices.add(invoice);
-            }
-            return invoices;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
+  
 
     public static void insertInvoice(double amount, String paymentStatus, LocalDate receivedDate, int appointmentId, Integer voucherId) {
         String sql = "INSERT INTO Invloice (amount, paymentStatus, receivedDate, appointmentId, voucherId) VALUES (?,?,?,?,?)";

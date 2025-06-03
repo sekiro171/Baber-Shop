@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package babershopDAO;
 
 import static babershopDAO.CustomerDAO.getConnect;
@@ -104,6 +100,10 @@ public class StaffDAO {
             System.out.println(e);
         }
         return false;
+    }
+    
+    public static String takeStaffname (){
+        
     }
 
     public static void main(String[] args) {

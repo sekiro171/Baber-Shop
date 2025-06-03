@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package babershopDAO;
 
 import static babershopDAO.CustomerDAO.getConnect;
@@ -13,12 +9,7 @@ import java.util.List;
 import model.Admin;
 import model.Customer;
 import model.Staff;
-import org.apache.tomcat.dbcp.dbcp2.PoolingConnection;
 
-/**
- *
- * @author Sekiro
- */
 public class AccountDAO {
 
     public String changePassword(String email, String currentPassword, String newPassword) {

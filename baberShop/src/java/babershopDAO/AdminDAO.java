@@ -32,66 +32,6 @@ public class AdminDAO {
         }
         return null;
     }
-    
-  public Admin checkAdmin(String username, String password) {
-        String sql = "SELECT first_name, last_name, email, phone_number FROM Admin WHERE email = ? and password = ?";
-        try (Connection con = getConnect()) {
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, username);
-            st.setString(2, password);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                Admin admin = new Admin(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("phone_number"));
-                return admin;
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        return null;
-    }
-
-    public static Customer getAdmin(int id) {
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Admin] WHERE id = ?";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Customer cs = new Customer(firstName, lastName, email, phoneNumber);
-                System.out.println(cs);
-                return cs;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
-
-    public static List<Admin> getAllAdmin() {
-        List<Admin> admins = new ArrayList<>();
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Admin]";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Admin admin = new Admin(firstName, lastName, email, phoneNumber);
-                admins.add(admin);
-            }
-            return admins;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
-
     public static void insertAdmin(String firstName, String lastName, String email, String password, String phoneNumber) {
         String sql = "INSERT INTO Admin (first_name, last_name, email, password, phone_number) VALUES (?,?,?,?,?)";
         try (Connection con = getConnect()) {
