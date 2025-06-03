@@ -36,56 +36,19 @@ public class StaffDAO {
         return null;
     }
 
-    public static Staff getStaff(int id) {
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Staff] WHERE id = ?";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Staff staff = new Staff(firstName, lastName, email, phoneNumber);
-                System.out.println(staff);
-                return staff;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
-
-    public Staff checkStaff(String username, String password) {
-        String sql = "SELECT first_name, last_name, email, phone_number FROM Customer WHERE email = ? and password = ? and [status] = 1";
-        try (Connection con = getConnect()) {
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, username);
-            st.setString(2, password);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                Staff staff = new Staff(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("phone_number"));
-                return staff;
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        return null;
-    }
-
-    public static List<Staff> getAllStaffs() {
+  
+    public static List<Staff> getAllStaff() {
         List<Staff> staffs = new ArrayList<>();
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Staff]";
+        String sql = "SELECT * FROM [Staff]";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Staff staff = new Staff(firstName, lastName, email, phoneNumber);
+                int accountId = rs.getInt(1);
+                String firstName = rs.getString(2);
+                String lastName = rs.getString(3);
+                String img = rs.getString(4);
+                Staff staff = new Staff(accountId, firstName, lastName,img);
                 staffs.add(staff);
             }
             return staffs;

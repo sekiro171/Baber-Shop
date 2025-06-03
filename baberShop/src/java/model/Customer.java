@@ -16,6 +16,12 @@ public class Customer extends Account{
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+    public Customer(int accountId, String firstName, String lastName) {
+        this.accountId = accountId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
     
 
     // Getters and Setters

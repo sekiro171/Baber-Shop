@@ -22,6 +22,13 @@ public class Staff extends Account{
         this.lastName = lastName;
     }
 
+    public Staff(int accountId, String firstName, String lastName, String img) {
+        this.accountId = accountId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.img = img;
+    }
+
    
     
     

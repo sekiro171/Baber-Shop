@@ -30,56 +30,18 @@ public class CustomerDAO {
         return null;
     }
 
-    public static Customer getCustomer(int id) {
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Customer] WHERE id = ?";
-        try (Connection con = getConnect()) {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Customer cs = new Customer(firstName, lastName, email, phoneNumber);
-                System.out.println(cs);
-                return cs;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
-
-    public Customer checkCustomer(String username, String password) {
-        String sql = "SELECT first_name, last_name, email, phone_number FROM Customer WHERE email = ? and password = ? and [status] = 1";
-        try (Connection con = getConnect()) {
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, username);
-            st.setString(2, password);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                Customer customer = new Customer(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("phone_number"));
-                return customer;
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        return null;
-    }
 
     public static List<Customer> getAllCustomer() {
         List<Customer> customers = new ArrayList<>();
-        String sql = "SELECT first_name, last_name, email, phone_number FROM [Customer]";
+        String sql = "SELECT * FROM [Customer]";
         try (Connection con = getConnect()) {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                String firstName = rs.getString(1);
-                String lastName = rs.getString(2);
-                String email = rs.getString(3);
-                String phoneNumber = rs.getString(4);
-                Customer cs = new Customer(firstName, lastName, email, phoneNumber);
+                int accountId = rs.getInt(1);
+                String firstName = rs.getString(2);
+                String lastName = rs.getString(3);
+                Customer cs = new Customer(accountId, firstName, lastName);
                 customers.add(cs);
             }
             return customers;
